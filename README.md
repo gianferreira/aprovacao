@@ -1,3 +1,9 @@
-# professional_development
+# Trabalho de Desenv. Profissional - PUC-PR
 
-A new Flutter project.
+### Professor:
+Mark Joselli
+
+### Aluno:
+Gian Carlos Ferreira
+
+### Vídeo explicativo: 
