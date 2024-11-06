@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1079433189609",
+    "project_id": "biomasbrasil-1dff3",
+    "storage_bucket": "biomasbrasil-1dff3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079433189609:android:7ef9dd15bb326690a1b878",
+        "android_client_info": {
+          "package_name": "com.example.biomas_brasil"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGSWA74Wd7bn2DirY78KxPhjYIUddVYHM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
