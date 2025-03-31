@@ -1,11 +1,11 @@
-import 'package:professional_development/core/navigation/navigators/navigator.dart';
-import 'package:professional_development/features/user/signup/presentation/stores/signup_controller.dart';
+import 'package:aprovacao/core/navigation/navigators/navigator.dart';
+import 'package:aprovacao/features/user/signup/presentation/stores/signup_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:professional_development/features/user/signup/presentation/widgets/user_signup_form.dart';
-import 'package:professional_development/features/user/signup/presentation/widgets/user_signup_handler.dart';
-import 'package:professional_development/features/user/signup/presentation/widgets/user_signup_logo.dart';
+import 'package:aprovacao/features/user/signup/presentation/widgets/user_signup_form.dart';
+import 'package:aprovacao/features/user/signup/presentation/widgets/user_signup_handler.dart';
+import 'package:aprovacao/features/user/signup/presentation/widgets/user_signup_logo.dart';
 
-import 'package:professional_development/features/user/signup/signup_injection_container.dart' as sign_up_dependencies;
+import 'package:aprovacao/features/user/signup/signup_injection_container.dart' as sign_up_dependencies;
 
 class UserSignUpView extends StatefulWidget {
   const UserSignUpView({

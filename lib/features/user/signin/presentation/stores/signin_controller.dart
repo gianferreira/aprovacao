@@ -1,5 +1,5 @@
-import 'package:professional_development/features/user/signin/domain/usecases/signin_use_case.dart';
-import 'package:professional_development/features/user/signin/presentation/stores/signin_state.dart';
+import 'package:aprovacao/features/user/signin/domain/usecases/signin_use_case.dart';
+import 'package:aprovacao/features/user/signin/presentation/stores/signin_state.dart';
 import 'package:flutter/material.dart';
 
 class SignInController extends ValueNotifier<SignInState> {

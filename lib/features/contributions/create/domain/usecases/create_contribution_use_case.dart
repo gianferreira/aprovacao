@@ -1,7 +1,7 @@
-import 'package:professional_development/core/arch/failures/failures.dart';
-import 'package:professional_development/core/arch/use_case/use_case.dart';
-import 'package:professional_development/features/contributions/create/domain/repositories/create_contribution_repository.dart';
-import 'package:professional_development/features/contributions/list/domain/entities/contributions_entity.dart';
+import 'package:aprovacao/core/arch/failures/failures.dart';
+import 'package:aprovacao/core/arch/use_case/use_case.dart';
+import 'package:aprovacao/features/contributions/create/domain/repositories/create_contribution_repository.dart';
+import 'package:aprovacao/features/contributions/list/domain/entities/contributions_entity.dart';
 import 'package:dartz/dartz.dart';
 
 class CreateContributionUsecase implements UseCase<ContributionEntity, CreateContributionParams> {

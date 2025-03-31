@@ -1,5 +1,5 @@
-import 'package:professional_development/features/user/signup/domain/usecases/sign_use_case.dart';
-import 'package:professional_development/features/user/signup/presentation/stores/signup_state.dart';
+import 'package:aprovacao/features/user/signup/domain/usecases/sign_use_case.dart';
+import 'package:aprovacao/features/user/signup/presentation/stores/signup_state.dart';
 import 'package:flutter/material.dart';
 
 class SignUpController extends ValueNotifier<SignUpState> {

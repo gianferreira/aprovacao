@@ -1,5 +1,5 @@
-import 'package:professional_development/core/navigation/arguments/biome_args.dart';
-import 'package:professional_development/features/biome/details/presentation/pages/biome_details_view.dart';
+import 'package:aprovacao/core/navigation/arguments/biome_args.dart';
+import 'package:aprovacao/features/biome/details/presentation/pages/biome_details_view.dart';
 import 'package:flutter/material.dart';
 
 class BiomeDetailsPage extends StatelessWidget {

@@ -1,7 +1,7 @@
-import 'package:professional_development/features/biome/list/domain/entities/biome_entity.dart';
-import 'package:professional_development/features/biome/list/presentation/widgets/biome_item.dart';
-import 'package:professional_development/features/user/signout/presentation/widgets/signout_handler.dart';
-import 'package:professional_development/features/user/signup/domain/entities/user_entity.dart';
+import 'package:aprovacao/features/biome/list/domain/entities/biome_entity.dart';
+import 'package:aprovacao/features/biome/list/presentation/widgets/biome_item.dart';
+import 'package:aprovacao/features/user/signout/presentation/widgets/signout_handler.dart';
+import 'package:aprovacao/features/user/signup/domain/entities/user_entity.dart';
 import 'package:flutter/material.dart';
 
 class BiomesListView extends StatelessWidget {

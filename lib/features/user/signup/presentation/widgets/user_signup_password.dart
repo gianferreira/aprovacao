@@ -1,5 +1,5 @@
-import 'package:professional_development/core/validators/password_validators.dart';
-import 'package:professional_development/core/widgets/text_fields/text_password_field.dart';
+import 'package:aprovacao/core/validators/password_validators.dart';
+import 'package:aprovacao/core/widgets/text_fields/text_password_field.dart';
 import 'package:flutter/material.dart';
 
 class UserSIgnupPassowrdCreatopm extends StatelessWidget with PasswordFormValidations {

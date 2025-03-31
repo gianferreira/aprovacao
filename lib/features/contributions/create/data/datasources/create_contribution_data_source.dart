@@ -1,6 +1,6 @@
-import 'package:professional_development/core/arch/failures/failures.dart';
-import 'package:professional_development/core/firebase/firestore/firestore_api.dart';
-import 'package:professional_development/features/contributions/list/domain/entities/contributions_entity.dart';
+import 'package:aprovacao/core/arch/failures/failures.dart';
+import 'package:aprovacao/core/firebase/firestore/firestore_api.dart';
+import 'package:aprovacao/features/contributions/list/domain/entities/contributions_entity.dart';
 
 abstract class CreateContributionDataSource {
   Future<ContributionEntity> createContribution({

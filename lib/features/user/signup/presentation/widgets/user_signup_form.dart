@@ -1,6 +1,6 @@
-import 'package:professional_development/core/validators/field_validators.dart';
-import 'package:professional_development/core/widgets/text_fields/text_form_field.dart';
-import 'package:professional_development/features/user/signup/presentation/widgets/user_signup_password.dart';
+import 'package:aprovacao/core/validators/field_validators.dart';
+import 'package:aprovacao/core/widgets/text_fields/text_form_field.dart';
+import 'package:aprovacao/features/user/signup/presentation/widgets/user_signup_password.dart';
 import 'package:flutter/material.dart';
 
 class UserSignUpForm extends StatelessWidget with BiomeFormValidations {

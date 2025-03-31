@@ -1,6 +1,6 @@
-import 'package:professional_development/core/arch/failures/failures.dart';
-import 'package:professional_development/core/arch/use_case/use_case.dart';
-import 'package:professional_development/features/user/signout/domain/repositories/signout_repository.dart';
+import 'package:aprovacao/core/arch/failures/failures.dart';
+import 'package:aprovacao/core/arch/use_case/use_case.dart';
+import 'package:aprovacao/features/user/signout/domain/repositories/signout_repository.dart';
 import 'package:dartz/dartz.dart';
 
 class SignoutUsecase implements UseCase<void, NoParams> {

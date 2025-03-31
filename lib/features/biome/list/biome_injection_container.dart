@@ -1,9 +1,9 @@
-import 'package:professional_development/core/firebase/firestore/firestore_api.dart';
-import 'package:professional_development/features/biome/list/data/datasources/biome_data_source.dart';
-import 'package:professional_development/features/biome/list/data/repositories/biome_repository_impl.dart';
-import 'package:professional_development/features/biome/list/domain/repositories/biome_repository.dart';
-import 'package:professional_development/features/biome/list/domain/usecases/load_biomes_use_case.dart';
-import 'package:professional_development/features/biome/list/presentation/stores/biome_controller.dart';
+import 'package:aprovacao/core/firebase/firestore/firestore_api.dart';
+import 'package:aprovacao/features/biome/list/data/datasources/biome_data_source.dart';
+import 'package:aprovacao/features/biome/list/data/repositories/biome_repository_impl.dart';
+import 'package:aprovacao/features/biome/list/domain/repositories/biome_repository.dart';
+import 'package:aprovacao/features/biome/list/domain/usecases/load_biomes_use_case.dart';
+import 'package:aprovacao/features/biome/list/presentation/stores/biome_controller.dart';
 import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;

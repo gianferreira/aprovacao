@@ -1,7 +1,7 @@
-import 'package:professional_development/features/biome/details/presentation/pages/biome_details_page.dart';
-import 'package:professional_development/features/biome/list/presentation/pages/biomes_list_page.dart';
-import 'package:professional_development/features/contributions/create/presentation/pages/create_contribution_page.dart';
-import 'package:professional_development/features/user/signup/presentation/pages/user_signup_page.dart';
+import 'package:aprovacao/features/biome/details/presentation/pages/biome_details_page.dart';
+import 'package:aprovacao/features/biome/list/presentation/pages/biomes_list_page.dart';
+import 'package:aprovacao/features/contributions/create/presentation/pages/create_contribution_page.dart';
+import 'package:aprovacao/features/user/signup/presentation/pages/user_signup_page.dart';
 import 'package:flutter/material.dart';
 
 class Routes {

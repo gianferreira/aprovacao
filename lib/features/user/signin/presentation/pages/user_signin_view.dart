@@ -1,10 +1,10 @@
-import 'package:professional_development/features/user/signin/presentation/stores/signin_controller.dart';
+import 'package:aprovacao/features/user/signin/presentation/stores/signin_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:professional_development/features/user/signin/presentation/widgets/user_signin_form.dart';
-import 'package:professional_development/features/user/signin/presentation/widgets/user_signin_handler.dart';
-import 'package:professional_development/features/user/signin/presentation/widgets/user_signin_logo.dart';
+import 'package:aprovacao/features/user/signin/presentation/widgets/user_signin_form.dart';
+import 'package:aprovacao/features/user/signin/presentation/widgets/user_signin_handler.dart';
+import 'package:aprovacao/features/user/signin/presentation/widgets/user_signin_logo.dart';
 
-import 'package:professional_development/features/user/signin/signin_injection_container.dart' as sign_in_dependencies;
+import 'package:aprovacao/features/user/signin/signin_injection_container.dart' as sign_in_dependencies;
 
 class UserSignInView extends StatefulWidget {
   const UserSignInView({

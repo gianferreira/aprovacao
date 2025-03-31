@@ -1,5 +1,5 @@
-import 'package:professional_development/core/validators/field_validators.dart';
-import 'package:professional_development/core/widgets/text_fields/text_form_field.dart';
+import 'package:aprovacao/core/validators/field_validators.dart';
+import 'package:aprovacao/core/widgets/text_fields/text_form_field.dart';
 import 'package:flutter/material.dart';
 
 class CreateContributionForm extends StatelessWidget with BiomeFormValidations {

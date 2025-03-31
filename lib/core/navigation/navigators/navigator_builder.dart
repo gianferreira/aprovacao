@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:professional_development/core/navigation/arguments/args.dart';
-import 'package:professional_development/core/navigation/navigators/navigator.dart';
+import 'package:aprovacao/core/navigation/arguments/args.dart';
+import 'package:aprovacao/core/navigation/navigators/navigator.dart';
 
 class DevProNavigatorBuilder {
   static Widget push({

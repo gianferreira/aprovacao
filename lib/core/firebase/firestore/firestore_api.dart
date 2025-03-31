@@ -1,8 +1,8 @@
-import 'package:professional_development/core/arch/failures/failures.dart';
-import 'package:professional_development/features/contributions/list/data/models/contributions_model.dart';
-import 'package:professional_development/features/contributions/list/domain/entities/contributions_entity.dart';
-import 'package:professional_development/features/user/signup/data/models/user_model.dart';
-import 'package:professional_development/features/user/signup/domain/entities/user_entity.dart';
+import 'package:aprovacao/core/arch/failures/failures.dart';
+import 'package:aprovacao/features/contributions/list/data/models/contributions_model.dart';
+import 'package:aprovacao/features/contributions/list/domain/entities/contributions_entity.dart';
+import 'package:aprovacao/features/user/signup/data/models/user_model.dart';
+import 'package:aprovacao/features/user/signup/domain/entities/user_entity.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FirestoreAPI {

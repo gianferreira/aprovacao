@@ -1,4 +1,4 @@
-import 'package:professional_development/features/user/signin/presentation/pages/user_signin_view.dart';
+import 'package:aprovacao/features/user/signin/presentation/pages/user_signin_view.dart';
 import 'package:flutter/material.dart';
 
 class UserSignInPage extends StatelessWidget {

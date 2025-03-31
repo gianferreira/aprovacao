@@ -1,4 +1,4 @@
-import 'package:professional_development/features/user/signup/domain/entities/user_entity.dart';
+import 'package:aprovacao/features/user/signup/domain/entities/user_entity.dart';
 
 abstract class SignInState {}
 

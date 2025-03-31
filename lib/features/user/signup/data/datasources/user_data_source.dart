@@ -1,6 +1,6 @@
-import 'package:professional_development/core/arch/failures/failures.dart';
-import 'package:professional_development/core/firebase/firestore/firestore_api.dart';
-import 'package:professional_development/features/user/signup/domain/entities/user_entity.dart';
+import 'package:aprovacao/core/arch/failures/failures.dart';
+import 'package:aprovacao/core/firebase/firestore/firestore_api.dart';
+import 'package:aprovacao/features/user/signup/domain/entities/user_entity.dart';
 
 abstract class UserDataSource {
   Future<UserEntity> createUser({

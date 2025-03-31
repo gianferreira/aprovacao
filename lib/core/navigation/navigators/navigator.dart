@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:professional_development/core/navigation/arguments/args.dart';
+import 'package:aprovacao/core/navigation/arguments/args.dart';
 
 class DevProNavigator {
   static void push({

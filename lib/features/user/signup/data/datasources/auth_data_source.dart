@@ -1,5 +1,5 @@
-import 'package:professional_development/core/arch/failures/failures.dart';
-import 'package:professional_development/core/firebase/authentication/auth_api.dart';
+import 'package:aprovacao/core/arch/failures/failures.dart';
+import 'package:aprovacao/core/firebase/authentication/auth_api.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class AuthDataSource {

@@ -1,13 +1,13 @@
-import 'package:professional_development/core/navigation/navigators/navigator.dart';
-import 'package:professional_development/features/biome/list/domain/entities/biome_entity.dart';
-import 'package:professional_development/features/contributions/create/presentation/stores/create_contribution_controller.dart';
-import 'package:professional_development/features/contributions/create/presentation/widgets/create_contribution_form.dart';
-import 'package:professional_development/features/contributions/create/presentation/widgets/create_contribution_handler.dart';
-import 'package:professional_development/features/contributions/create/presentation/widgets/create_contribution_header.dart';
-import 'package:professional_development/features/user/signup/domain/entities/user_entity.dart';
+import 'package:aprovacao/core/navigation/navigators/navigator.dart';
+import 'package:aprovacao/features/biome/list/domain/entities/biome_entity.dart';
+import 'package:aprovacao/features/contributions/create/presentation/stores/create_contribution_controller.dart';
+import 'package:aprovacao/features/contributions/create/presentation/widgets/create_contribution_form.dart';
+import 'package:aprovacao/features/contributions/create/presentation/widgets/create_contribution_handler.dart';
+import 'package:aprovacao/features/contributions/create/presentation/widgets/create_contribution_header.dart';
+import 'package:aprovacao/features/user/signup/domain/entities/user_entity.dart';
 import 'package:flutter/material.dart';
 
-import 'package:professional_development/features/contributions/create/create_contribution_injection_container.dart' as create_contribution_dependencies;
+import 'package:aprovacao/features/contributions/create/create_contribution_injection_container.dart' as create_contribution_dependencies;
 
 class CreateContributionView extends StatefulWidget {
   const CreateContributionView({

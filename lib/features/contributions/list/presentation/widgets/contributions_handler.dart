@@ -1,13 +1,13 @@
-import 'package:professional_development/features/biome/list/domain/entities/biome_entity.dart';
-import 'package:professional_development/features/contributions/list/presentation/stores/contributions_controller.dart';
-import 'package:professional_development/features/contributions/list/presentation/stores/contributions_state.dart';
-import 'package:professional_development/features/contributions/list/presentation/widgets/contributions_error.dart';
-import 'package:professional_development/features/contributions/list/presentation/widgets/contributions_list.dart';
-import 'package:professional_development/features/contributions/list/presentation/widgets/button_load_contributions.dart';
-import 'package:professional_development/features/user/signup/domain/entities/user_entity.dart';
+import 'package:aprovacao/features/biome/list/domain/entities/biome_entity.dart';
+import 'package:aprovacao/features/contributions/list/presentation/stores/contributions_controller.dart';
+import 'package:aprovacao/features/contributions/list/presentation/stores/contributions_state.dart';
+import 'package:aprovacao/features/contributions/list/presentation/widgets/contributions_error.dart';
+import 'package:aprovacao/features/contributions/list/presentation/widgets/contributions_list.dart';
+import 'package:aprovacao/features/contributions/list/presentation/widgets/button_load_contributions.dart';
+import 'package:aprovacao/features/user/signup/domain/entities/user_entity.dart';
 import 'package:flutter/material.dart';
 
-import 'package:professional_development/features/contributions/list/contributions_injection_container.dart' as contribution_dependencies;
+import 'package:aprovacao/features/contributions/list/contributions_injection_container.dart' as contribution_dependencies;
 
 class LoadContributionsHandler extends StatefulWidget {
   const LoadContributionsHandler({

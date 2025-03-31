@@ -1,5 +1,5 @@
-import 'package:professional_development/features/contributions/list/domain/usecases/load_contributions_use_case.dart';
-import 'package:professional_development/features/contributions/list/presentation/stores/contributions_state.dart';
+import 'package:aprovacao/features/contributions/list/domain/usecases/load_contributions_use_case.dart';
+import 'package:aprovacao/features/contributions/list/presentation/stores/contributions_state.dart';
 import 'package:flutter/material.dart';
 
 class ContributionController extends ValueNotifier<ContributionState> {

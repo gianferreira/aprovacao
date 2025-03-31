@@ -1,8 +1,8 @@
-import 'package:professional_development/core/arch/failures/failures.dart';
-import 'package:professional_development/features/user/signin/data/datasources/signin_data_source.dart';
-import 'package:professional_development/features/user/signin/domain/repositories/signin_repository.dart';
-import 'package:professional_development/features/user/signup/data/datasources/user_data_source.dart';
-import 'package:professional_development/features/user/signup/domain/entities/user_entity.dart';
+import 'package:aprovacao/core/arch/failures/failures.dart';
+import 'package:aprovacao/features/user/signin/data/datasources/signin_data_source.dart';
+import 'package:aprovacao/features/user/signin/domain/repositories/signin_repository.dart';
+import 'package:aprovacao/features/user/signup/data/datasources/user_data_source.dart';
+import 'package:aprovacao/features/user/signup/domain/entities/user_entity.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 

@@ -1,7 +1,7 @@
-import 'package:professional_development/core/arch/failures/failures.dart';
-import 'package:professional_development/core/arch/use_case/use_case.dart';
-import 'package:professional_development/features/user/signup/domain/entities/user_entity.dart';
-import 'package:professional_development/features/user/signup/domain/repositories/signup_repository.dart';
+import 'package:aprovacao/core/arch/failures/failures.dart';
+import 'package:aprovacao/core/arch/use_case/use_case.dart';
+import 'package:aprovacao/features/user/signup/domain/entities/user_entity.dart';
+import 'package:aprovacao/features/user/signup/domain/repositories/signup_repository.dart';
 import 'package:dartz/dartz.dart';
 
 class SignUsecase implements UseCase<UserEntity, SignParams> {

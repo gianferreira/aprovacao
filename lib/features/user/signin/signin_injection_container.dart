@@ -1,11 +1,11 @@
-import 'package:professional_development/core/firebase/authentication/auth_api.dart';
-import 'package:professional_development/core/firebase/firestore/firestore_api.dart';
-import 'package:professional_development/features/user/signin/data/datasources/signin_data_source.dart';
-import 'package:professional_development/features/user/signin/data/repositories/signin_repository_impl.dart';
-import 'package:professional_development/features/user/signin/domain/repositories/signin_repository.dart';
-import 'package:professional_development/features/user/signin/domain/usecases/signin_use_case.dart';
-import 'package:professional_development/features/user/signin/presentation/stores/signin_controller.dart';
-import 'package:professional_development/features/user/signup/data/datasources/user_data_source.dart';
+import 'package:aprovacao/core/firebase/authentication/auth_api.dart';
+import 'package:aprovacao/core/firebase/firestore/firestore_api.dart';
+import 'package:aprovacao/features/user/signin/data/datasources/signin_data_source.dart';
+import 'package:aprovacao/features/user/signin/data/repositories/signin_repository_impl.dart';
+import 'package:aprovacao/features/user/signin/domain/repositories/signin_repository.dart';
+import 'package:aprovacao/features/user/signin/domain/usecases/signin_use_case.dart';
+import 'package:aprovacao/features/user/signin/presentation/stores/signin_controller.dart';
+import 'package:aprovacao/features/user/signup/data/datasources/user_data_source.dart';
 import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;

@@ -1,12 +1,12 @@
-import 'package:professional_development/core/navigation/arguments/args.dart';
-import 'package:professional_development/core/navigation/navigators/navigator_builder.dart';
-import 'package:professional_development/core/navigation/routes/routes.dart';
-import 'package:professional_development/core/widgets/snacknar/biome_snackbar_error.dart';
-import 'package:professional_development/features/user/signout/presentation/stores/signout_controller.dart';
-import 'package:professional_development/features/user/signout/presentation/stores/signout_state.dart';
+import 'package:aprovacao/core/navigation/arguments/args.dart';
+import 'package:aprovacao/core/navigation/navigators/navigator_builder.dart';
+import 'package:aprovacao/core/navigation/routes/routes.dart';
+import 'package:aprovacao/core/widgets/snacknar/biome_snackbar_error.dart';
+import 'package:aprovacao/features/user/signout/presentation/stores/signout_controller.dart';
+import 'package:aprovacao/features/user/signout/presentation/stores/signout_state.dart';
 import 'package:flutter/material.dart';
 
-import 'package:professional_development/features/user/signout/signout_injection_container.dart' as sign_out_dependencies;
+import 'package:aprovacao/features/user/signout/signout_injection_container.dart' as sign_out_dependencies;
 
 class SignoutHandler extends StatefulWidget {
   const SignoutHandler({super.key});

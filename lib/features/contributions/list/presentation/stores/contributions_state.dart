@@ -1,4 +1,4 @@
-import 'package:professional_development/features/contributions/list/domain/entities/contributions_entity.dart';
+import 'package:aprovacao/features/contributions/list/domain/entities/contributions_entity.dart';
 
 abstract class ContributionState {}
 

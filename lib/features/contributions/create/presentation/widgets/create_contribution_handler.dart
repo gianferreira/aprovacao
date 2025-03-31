@@ -1,12 +1,12 @@
-import 'package:professional_development/core/navigation/arguments/biome_args.dart';
-import 'package:professional_development/core/navigation/navigators/navigator_builder.dart';
-import 'package:professional_development/core/navigation/routes/routes.dart';
-import 'package:professional_development/core/widgets/snacknar/biome_snackbar_error.dart';
-import 'package:professional_development/core/widgets/snacknar/biome_snackbar_success.dart';
-import 'package:professional_development/features/biome/list/domain/entities/biome_entity.dart';
-import 'package:professional_development/features/contributions/create/presentation/stores/create_contribution_controller.dart';
-import 'package:professional_development/features/contributions/create/presentation/stores/create_contribution_state.dart';
-import 'package:professional_development/features/user/signup/domain/entities/user_entity.dart';
+import 'package:aprovacao/core/navigation/arguments/biome_args.dart';
+import 'package:aprovacao/core/navigation/navigators/navigator_builder.dart';
+import 'package:aprovacao/core/navigation/routes/routes.dart';
+import 'package:aprovacao/core/widgets/snacknar/biome_snackbar_error.dart';
+import 'package:aprovacao/core/widgets/snacknar/biome_snackbar_success.dart';
+import 'package:aprovacao/features/biome/list/domain/entities/biome_entity.dart';
+import 'package:aprovacao/features/contributions/create/presentation/stores/create_contribution_controller.dart';
+import 'package:aprovacao/features/contributions/create/presentation/stores/create_contribution_state.dart';
+import 'package:aprovacao/features/user/signup/domain/entities/user_entity.dart';
 import 'package:flutter/material.dart';
 
 class CreateContributionHandler extends StatelessWidget {

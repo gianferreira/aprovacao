@@ -1,4 +1,4 @@
-import 'package:professional_development/core/arch/failures/failures.dart';
+import 'package:aprovacao/core/arch/failures/failures.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class SignoutRepository {

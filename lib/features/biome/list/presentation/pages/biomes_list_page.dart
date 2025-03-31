@@ -1,10 +1,10 @@
-import 'package:professional_development/core/navigation/arguments/user_args.dart';
-import 'package:professional_development/features/biome/list/presentation/pages/biomes_list_view.dart';
-import 'package:professional_development/features/biome/list/presentation/stores/biome_controller.dart';
-import 'package:professional_development/features/biome/list/presentation/stores/biome_state.dart';
+import 'package:aprovacao/core/navigation/arguments/user_args.dart';
+import 'package:aprovacao/features/biome/list/presentation/pages/biomes_list_view.dart';
+import 'package:aprovacao/features/biome/list/presentation/stores/biome_controller.dart';
+import 'package:aprovacao/features/biome/list/presentation/stores/biome_state.dart';
 import 'package:flutter/material.dart';
 
-import 'package:professional_development/features/biome/list/biome_injection_container.dart' as biome_dependencies;
+import 'package:aprovacao/features/biome/list/biome_injection_container.dart' as biome_dependencies;
 
 class BiomesListPage extends StatefulWidget {
   const BiomesListPage({super.key});

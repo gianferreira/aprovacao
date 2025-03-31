@@ -1,11 +1,11 @@
-import 'package:professional_development/core/firebase/authentication/auth_api.dart';
-import 'package:professional_development/core/firebase/firestore/firestore_api.dart';
-import 'package:professional_development/features/user/signup/domain/usecases/sign_use_case.dart';
-import 'package:professional_development/features/user/signup/data/datasources/auth_data_source.dart';
-import 'package:professional_development/features/user/signup/data/datasources/user_data_source.dart';
-import 'package:professional_development/features/user/signup/data/repositories/signup_repository_impl.dart';
-import 'package:professional_development/features/user/signup/domain/repositories/signup_repository.dart';
-import 'package:professional_development/features/user/signup/presentation/stores/signup_controller.dart';
+import 'package:aprovacao/core/firebase/authentication/auth_api.dart';
+import 'package:aprovacao/core/firebase/firestore/firestore_api.dart';
+import 'package:aprovacao/features/user/signup/domain/usecases/sign_use_case.dart';
+import 'package:aprovacao/features/user/signup/data/datasources/auth_data_source.dart';
+import 'package:aprovacao/features/user/signup/data/datasources/user_data_source.dart';
+import 'package:aprovacao/features/user/signup/data/repositories/signup_repository_impl.dart';
+import 'package:aprovacao/features/user/signup/domain/repositories/signup_repository.dart';
+import 'package:aprovacao/features/user/signup/presentation/stores/signup_controller.dart';
 import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;

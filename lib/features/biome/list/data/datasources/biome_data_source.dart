@@ -1,7 +1,7 @@
-import 'package:professional_development/core/arch/failures/failures.dart';
-import 'package:professional_development/core/firebase/firestore/firestore_api.dart';
-import 'package:professional_development/features/biome/list/data/models/biome_model.dart';
-import 'package:professional_development/features/biome/list/domain/entities/biome_entity.dart';
+import 'package:aprovacao/core/arch/failures/failures.dart';
+import 'package:aprovacao/core/firebase/firestore/firestore_api.dart';
+import 'package:aprovacao/features/biome/list/data/models/biome_model.dart';
+import 'package:aprovacao/features/biome/list/domain/entities/biome_entity.dart';
 
 abstract class BiomeDataSource {
   Future<List<BiomeEntity>> loadBiomes();

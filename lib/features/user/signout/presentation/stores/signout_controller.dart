@@ -1,6 +1,6 @@
-import 'package:professional_development/core/arch/use_case/use_case.dart';
-import 'package:professional_development/features/user/signout/domain/usecases/signout_use_case.dart';
-import 'package:professional_development/features/user/signout/presentation/stores/signout_state.dart';
+import 'package:aprovacao/core/arch/use_case/use_case.dart';
+import 'package:aprovacao/features/user/signout/domain/usecases/signout_use_case.dart';
+import 'package:aprovacao/features/user/signout/presentation/stores/signout_state.dart';
 import 'package:flutter/material.dart';
 
 class SignoutController extends ValueNotifier<SignoutState> {

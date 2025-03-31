@@ -1,9 +1,9 @@
-import 'package:professional_development/core/navigation/arguments/user_args.dart';
-import 'package:professional_development/core/navigation/navigators/navigator.dart';
-import 'package:professional_development/core/navigation/routes/routes.dart';
-import 'package:professional_development/features/contributions/list/presentation/widgets/contributions_handler.dart';
-import 'package:professional_development/features/biome/list/domain/entities/biome_entity.dart';
-import 'package:professional_development/features/user/signup/domain/entities/user_entity.dart';
+import 'package:aprovacao/core/navigation/arguments/user_args.dart';
+import 'package:aprovacao/core/navigation/navigators/navigator.dart';
+import 'package:aprovacao/core/navigation/routes/routes.dart';
+import 'package:aprovacao/features/contributions/list/presentation/widgets/contributions_handler.dart';
+import 'package:aprovacao/features/biome/list/domain/entities/biome_entity.dart';
+import 'package:aprovacao/features/user/signup/domain/entities/user_entity.dart';
 import 'package:flutter/material.dart';
 
 class BiomeDetailsView extends StatefulWidget {

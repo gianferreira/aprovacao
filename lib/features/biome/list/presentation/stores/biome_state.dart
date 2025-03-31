@@ -1,4 +1,4 @@
-import 'package:professional_development/features/biome/list/domain/entities/biome_entity.dart';
+import 'package:aprovacao/features/biome/list/domain/entities/biome_entity.dart';
 
 abstract class BiomeState {}
 
