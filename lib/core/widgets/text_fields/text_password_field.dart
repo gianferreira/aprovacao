@@ -54,7 +54,7 @@ class _BiomeTextPasswordFieldState extends State<BiomeTextPasswordField> {
             widget.label,
             style: TextStyle(
               fontWeight: FontWeight.w700,
-              color: Theme.of(context).colorScheme.primary,
+              color: Colors.white,
             ),
           ),
         ),
@@ -71,7 +71,7 @@ class _BiomeTextPasswordFieldState extends State<BiomeTextPasswordField> {
               cursorColor: Colors.black,
               style: const TextStyle(
                 fontSize: 14.0,
-                color: Color(0xFF101010),
+                color: Colors.white,
               ),
               decoration: InputDecoration(
                 hintText: widget.hintText,

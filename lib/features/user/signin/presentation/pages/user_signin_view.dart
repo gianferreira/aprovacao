@@ -1,8 +1,5 @@
-import 'package:professional_development/core/navigation/arguments/args.dart';
-import 'package:professional_development/core/navigation/navigators/navigator.dart';
 import 'package:professional_development/features/user/signin/presentation/stores/signin_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:professional_development/core/navigation/routes/routes.dart';
 import 'package:professional_development/features/user/signin/presentation/widgets/user_signin_form.dart';
 import 'package:professional_development/features/user/signin/presentation/widgets/user_signin_handler.dart';
 import 'package:professional_development/features/user/signin/presentation/widgets/user_signin_logo.dart';
@@ -72,16 +69,6 @@ class _UserSignInViewState extends State<UserSignInView> {
               formKey: formKey,
             ),
             const SizedBox(height: 8.0),
-            OutlinedButton(
-              onPressed: () {
-                DevProNavigator.push(
-                  context: context,
-                  routeName: Routes.signUp,
-                  args: NoArgs(),
-                );
-              }, 
-              child: const Text('Cadastrar-se'),
-            ),
           ],
         ),
       ),

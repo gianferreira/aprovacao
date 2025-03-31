@@ -13,9 +13,9 @@ class UserSignInLogo extends StatelessWidget {
           bottom: 32.0,
         ),
         child: Image.asset(
-          'assets/biome-logo.jpg',
-          width: 150.0,
-          height: 150.0,
+          'assets/logo-aprovacao.jpg',
+          width: 100.0,
+          height: 100.0,
         ),
       ),
     );

@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 class AprovacaoTheme {
   static ThemeData theme = ThemeData(
     colorScheme: const ColorScheme.light(
-      background: Colors.white,
+      background: Color(0xFF0B1C40),
       error: Colors.red,
-      primary: Colors.green,
+      primary: Color(0xFF02CEFD),
       onPrimary: Colors.white,
     ),
 
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(
-        backgroundColor: Colors.green,
-        foregroundColor: Colors.white,
-        padding: const EdgeInsets.all(8.0),
+        backgroundColor: Color(0xFF02CEFD),
+        foregroundColor: Color(0xFF0B1C40),
+        padding: const EdgeInsets.all(12.0),
         textStyle: const TextStyle(
           color: Colors.white,
           fontSize: 14.0,
@@ -50,33 +50,47 @@ class AprovacaoTheme {
     inputDecorationTheme: InputDecorationTheme(
       hintStyle: const TextStyle(
         fontSize: 14.0,
-        color: Color(0xFF8F8F8F),
+        color: Color(0xFFC4C4C4),
       ),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(4.0),
         borderSide: const BorderSide(
-          color: Colors.grey,
+          color: Color(0xFFC4C4C4),
+          width: 1.0,
+        ),
+      ),
+      disabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(4.0),
+        borderSide: const BorderSide(
+          color: Color(0xFFC4C4C4),
+          width: 1.0,
+        ),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(4.0),
+        borderSide: const BorderSide(
+          color: Color(0xFFC4C4C4),
           width: 1.0,
         ),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(4.0),
         borderSide: const BorderSide(
-          color: Colors.black,
-          width: 1.0,
+          color: Colors.white,
+          width: 1.5,
         ),
       ),
       focusedErrorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(4.0),
         borderSide: const BorderSide(
-          color: Colors.black,
+          color: Colors.red,
           width: 1.0,
         ),
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(4.0),
         borderSide: const BorderSide(
-          color: Colors.black,
+          color: Colors.red,
           width: 1.0,
         ),
       ),

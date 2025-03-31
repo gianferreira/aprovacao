@@ -1,5 +1,4 @@
 import 'package:professional_development/features/biome/list/domain/entities/biome_entity.dart';
-import 'package:professional_development/features/biome/list/presentation/widgets/biome_help.dart';
 import 'package:professional_development/features/biome/list/presentation/widgets/biome_item.dart';
 import 'package:professional_development/features/user/signout/presentation/widgets/signout_handler.dart';
 import 'package:professional_development/features/user/signup/domain/entities/user_entity.dart';
@@ -19,17 +18,15 @@ class BiomesListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFF02CEFD),
         leading: const SignoutHandler(),
         title: const Text(
-          'Biomas do Brasil',
+          'Meus Estudos',
           style: TextStyle(
             fontWeight: FontWeight.w500,
             fontSize: 18.0,
           ),
         ),
-        actions: const <Widget>[
-          BiomesHelpIcon(),
-        ],
       ),
       body: ListView.separated(
         physics: const ClampingScrollPhysics(),
