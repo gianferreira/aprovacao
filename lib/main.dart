@@ -13,11 +13,11 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  runApp(const BiomesApp());
+  runApp(const AprovacaoApp());
 }
 
-class BiomesApp extends StatelessWidget {
-  const BiomesApp({super.key});
+class AprovacaoApp extends StatelessWidget {
+  const AprovacaoApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class BiomesApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: DevProTheme.theme,
+      theme: AprovacaoTheme.theme,
       home: const UserSignInPage(),
       routes: Routes.builders,
     );

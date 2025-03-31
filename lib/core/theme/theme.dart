@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class DevProTheme {
+class AprovacaoTheme {
   static ThemeData theme = ThemeData(
     colorScheme: const ColorScheme.light(
       background: Colors.white,
