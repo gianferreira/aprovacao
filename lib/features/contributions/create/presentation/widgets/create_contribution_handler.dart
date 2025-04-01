@@ -1,8 +1,8 @@
-import 'package:aprovacao/core/navigation/arguments/biome_args.dart';
 import 'package:aprovacao/core/navigation/navigators/navigator_builder.dart';
 import 'package:aprovacao/core/navigation/routes/routes.dart';
-import 'package:aprovacao/core/widgets/snacknar/biome_snackbar_error.dart';
-import 'package:aprovacao/core/widgets/snacknar/biome_snackbar_success.dart';
+import 'package:aprovacao/core/widgets/snacknar/aprovacao_snackbar_error.dart';
+import 'package:aprovacao/core/widgets/snacknar/aprovacao_snackbar_success.dart';
+import 'package:aprovacao/features/biome/details/presentation/pages/biome_details_page.dart';
 import 'package:aprovacao/features/biome/list/domain/entities/biome_entity.dart';
 import 'package:aprovacao/features/contributions/create/presentation/stores/create_contribution_controller.dart';
 import 'package:aprovacao/features/contributions/create/presentation/stores/create_contribution_state.dart';
@@ -33,21 +33,21 @@ class CreateContributionHandler extends StatelessWidget {
       valueListenable: createContributionController,
       builder: (context, state, child) {
         if(state is CreateContributionSuccess) {
-          DevProSnackBarSuccess.show(
+          AprovacaoSnackBarSuccess.show(
             context: context,
             title: 'Contribuição criada com sucesso!',
           );
 
-          DevProNavigatorBuilder.pushReplacement(
+          AprovacaoNavigatorBuilder.pushReplacement(
             context: context, 
-            routeName: Routes.biomesDetails,
-            args: BiomeArgs(
+            route: BiomeDetailsPage(
               user: user,
-              biome: biome
+              biome: biome,
             ),
+            routeName: Routes.biomesDetails,
           );
         } else if(state is CreateContributionError) {
-          DevProSnackBarError.show(
+          AprovacaoSnackBarError.show(
             context: context,
             title: state.errorMessage,
             message: 'Por favor, tente prosseguir em alguns instantes',

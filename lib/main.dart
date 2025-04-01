@@ -1,6 +1,5 @@
 import 'package:aprovacao/core/arch/dependencies/dependency_injector.dart';
 import 'package:aprovacao/core/theme/theme.dart';
-import 'package:aprovacao/core/navigation/routes/routes.dart';
 import 'package:aprovacao/features/user/signin/presentation/pages/user_signin_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -27,7 +26,6 @@ class AprovacaoApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AprovacaoTheme.theme,
       home: const UserSignInPage(),
-      routes: Routes.builders,
     );
   }
 }

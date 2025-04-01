@@ -56,7 +56,7 @@ class _CreateContributionViewState extends State<CreateContributionView> {
     return Scaffold(
       appBar: AppBar(
         leading: BackButton(
-          onPressed: () => DevProNavigator.pop(
+          onPressed: () => AprovacaoNavigator.pop(
             context: context,
           ),
         ),

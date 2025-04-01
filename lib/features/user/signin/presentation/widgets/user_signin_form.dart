@@ -34,7 +34,7 @@ class UserSignInForm extends StatelessWidget with BiomeFormValidations {
             ]),
           ),
           const SizedBox(height: 16.0),
-          BiomeTextPasswordField(
+          AprovacaoTextPasswordField(
             label: 'Senha',
             hintText: 'Insira a sua senha',
             maxLines: 1,

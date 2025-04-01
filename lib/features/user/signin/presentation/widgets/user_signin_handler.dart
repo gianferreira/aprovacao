@@ -1,7 +1,7 @@
-import 'package:aprovacao/core/navigation/arguments/user_args.dart';
 import 'package:aprovacao/core/navigation/navigators/navigator_builder.dart';
 import 'package:aprovacao/core/navigation/routes/routes.dart';
-import 'package:aprovacao/core/widgets/snacknar/biome_snackbar_error.dart';
+import 'package:aprovacao/core/widgets/snacknar/aprovacao_snackbar_error.dart';
+import 'package:aprovacao/features/biome/list/presentation/pages/biomes_list_page.dart';
 import 'package:aprovacao/features/user/signin/presentation/stores/signin_controller.dart';
 import 'package:aprovacao/features/user/signin/presentation/stores/signin_state.dart';
 import 'package:flutter/material.dart';
@@ -26,13 +26,13 @@ class UserSignInHandler extends StatelessWidget {
       valueListenable: signInController,
       builder: (context, state, child) {
         if(state is SignInSuccess) {
-          DevProNavigatorBuilder.pushReplacement(
+          AprovacaoNavigatorBuilder.pushReplacement(
             context: context, 
-            routeName: Routes.biomesList, 
-            args: UserArgs(user: state.loggedUser),
+            route: BiomesListPage(user: state.loggedUser),
+            routeName: Routes.biomesList,
           );
         } else if(state is SignInError) {
-          DevProSnackBarError.show(
+          AprovacaoSnackBarError.show(
             context: context,
             title: state.errorMessage,
             message: 'Por favor, tente prosseguir em alguns instantes',

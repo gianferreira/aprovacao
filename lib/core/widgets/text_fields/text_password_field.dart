@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class BiomeTextPasswordField extends StatefulWidget {
-  const BiomeTextPasswordField({
+class AprovacaoTextPasswordField extends StatefulWidget {
+  const AprovacaoTextPasswordField({
     super.key,
     required this.label,
     required this.hintText,
@@ -21,10 +21,10 @@ class BiomeTextPasswordField extends StatefulWidget {
   final String? Function(String?) validator;
 
   @override
-  State<BiomeTextPasswordField> createState() => _BiomeTextPasswordFieldState();
+  State<AprovacaoTextPasswordField> createState() => _AprovacaoTextPasswordFieldState();
 }
 
-class _BiomeTextPasswordFieldState extends State<BiomeTextPasswordField> {
+class _AprovacaoTextPasswordFieldState extends State<AprovacaoTextPasswordField> {
   late ValueNotifier<bool> visiblityController;
 
   @override
@@ -84,7 +84,7 @@ class _BiomeTextPasswordFieldState extends State<BiomeTextPasswordField> {
                       isInvisible
                         ? Icons.visibility
                         : Icons.visibility_off,
-                      color: const Color(0xFF5F5F5F),
+                      color: const Color(0xFFC4C4C4),
                     ),
                     onPressed: () => visiblityController.value = !visiblityController.value,
                   ),

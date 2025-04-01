@@ -1,7 +1,7 @@
-import 'package:aprovacao/core/navigation/arguments/biome_args.dart';
 import 'package:aprovacao/core/navigation/navigators/navigator.dart';
 import 'package:aprovacao/core/navigation/routes/routes.dart';
 import 'package:aprovacao/features/biome/list/domain/entities/biome_entity.dart';
+import 'package:aprovacao/features/contributions/create/presentation/pages/create_contribution_page.dart';
 import 'package:aprovacao/features/contributions/list/domain/entities/contributions_entity.dart';
 import 'package:aprovacao/features/contributions/list/presentation/widgets/button_add_contributions.dart';
 import 'package:aprovacao/features/contributions/list/presentation/widgets/contributions_empty.dart';
@@ -65,13 +65,13 @@ class ContributionsList extends StatelessWidget {
         const SizedBox(height: 16.0),
         AddContributionsButton(
           onPressed: () {
-            DevProNavigator.push(
+            AprovacaoNavigator.push(
               context: context,
-              routeName: Routes.createContribution,
-              args: BiomeArgs(
+              route: CreateContributionPage(
                 biome: biome,
                 user: user
               ),
+              routeName: Routes.createContribution,
             );
           },
         ),

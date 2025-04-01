@@ -1,6 +1,6 @@
-import 'package:aprovacao/core/navigation/arguments/user_args.dart';
 import 'package:aprovacao/core/navigation/navigators/navigator.dart';
 import 'package:aprovacao/core/navigation/routes/routes.dart';
+import 'package:aprovacao/features/biome/list/presentation/pages/biomes_list_page.dart';
 import 'package:aprovacao/features/contributions/list/presentation/widgets/contributions_handler.dart';
 import 'package:aprovacao/features/biome/list/domain/entities/biome_entity.dart';
 import 'package:aprovacao/features/user/signup/domain/entities/user_entity.dart';
@@ -42,10 +42,10 @@ class _BiomeDetailsViewState extends State<BiomeDetailsView> {
     return Scaffold(
       appBar: AppBar(
         leading: BackButton(
-          onPressed: () =>  DevProNavigator.push(
+          onPressed: () =>  AprovacaoNavigator.push(
             context: context,
+            route: BiomesListPage(user: widget.user),
             routeName: Routes.biomesList,
-            args: UserArgs(user: widget.user),
           ),
         ),
         title: Text(

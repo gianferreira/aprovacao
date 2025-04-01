@@ -1,32 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:aprovacao/core/navigation/arguments/args.dart';
 
-class DevProNavigator {
+class AprovacaoNavigator {
   static void push({
     required BuildContext context,
+    required Widget route,
     required String routeName,
-    required Args args,
   }) {
-    Navigator.of(context).pushNamed(
-      routeName,
-      arguments: args,
-    );
-  }
-
-  static void pushReplacement({
-    required BuildContext context,
-    required String routeName,
-    required Args args,
-  }) {
-    Navigator.of(context).pushReplacementNamed(
-      routeName,
-      arguments: args,
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => route,
+        settings: RouteSettings(name: routeName)
+      ),
     );
   }
 
   static void pop({
     required BuildContext context,
   }) {
-    Navigator.of(context).pop();
+    Navigator.pop(context);
   }
+
+  static void pushReplacement({
+    required BuildContext context,
+    required Widget route,
+    required String routeName,
+  }) {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => route,
+        settings: RouteSettings(name: routeName)
+      ),
+    );
+  }
+
 }

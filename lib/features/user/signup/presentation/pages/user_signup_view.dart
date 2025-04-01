@@ -54,7 +54,7 @@ class _UserSignUpViewState extends State<UserSignUpView> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.background,
         leading: BackButton(
-          onPressed: () => DevProNavigator.pop(context: context),
+          onPressed: () => AprovacaoNavigator.pop(context: context),
           color: Colors.green,
         ),
         title: const Text(
@@ -93,7 +93,7 @@ class _UserSignUpViewState extends State<UserSignUpView> {
             const SizedBox(height: 8.0),
             OutlinedButton(
               onPressed: () {
-                DevProNavigator.pop(context: context);
+                AprovacaoNavigator.pop(context: context);
               }, 
               child: const Text('Cancelar'),
             ),

@@ -1,34 +1,19 @@
-import 'package:flutter/material.dart';
-import 'package:aprovacao/core/navigation/arguments/args.dart';
 import 'package:aprovacao/core/navigation/navigators/navigator.dart';
+import 'package:flutter/material.dart';
 
-class DevProNavigatorBuilder {
+class AprovacaoNavigatorBuilder {
   static Widget push({
     required BuildContext context,
+    required Widget route,
     required String routeName,
-    required Args args,
   }) {
     _pushCallback(
       context: context,
+      route: route,
       routeName: routeName,
-      args: args,
     );
 
-    return _pushComponent();
-  }
-
-  static Widget pushReplacement({
-    required BuildContext context,
-    required String routeName,
-    required Args args,
-  }) {
-    _pushReplacementCallback(
-      context: context,
-      routeName: routeName,
-      args: args,
-    );
-
-    return _replacementComponent();
+    return _emptyComponent();
   }
 
   static Widget pop({
@@ -38,34 +23,37 @@ class DevProNavigatorBuilder {
       context: context,
     );
 
-    return _popComponent();
+    return _emptyComponent();
+  }
+
+  static Widget pushReplacement({
+    required BuildContext context,
+    required Widget route,
+    required String routeName,
+    Color? color,
+  }) {
+    _pushReplacementCallback(
+      context: context,
+      route: route,
+      routeName: routeName,
+    );
+
+    return _replacementComponent(
+      color: color,
+    );
   }
 
   static Future<void> _pushCallback({
     required BuildContext context,
+    required Widget route,
     required String routeName,
-    required Args args,
   }) async {
     await Future.delayed(Duration.zero);
 
-    DevProNavigator.push(
+    AprovacaoNavigator.push(
       context: context, 
+      route: route, 
       routeName: routeName,
-      args: args,
-    );
-  }
-
-  static Future<void> _pushReplacementCallback({
-    required BuildContext context,
-    required String routeName,
-    required Args args,
-  }) async {
-    await Future.delayed(Duration.zero);
-
-    DevProNavigator.pushReplacement(
-      context: context, 
-      routeName: routeName,
-      args: args,
     );
   }
 
@@ -74,18 +62,34 @@ class DevProNavigatorBuilder {
   }) async {
     await Future.delayed(Duration.zero);
 
-    DevProNavigator.pop(context: context);
+    AprovacaoNavigator.pop(context: context);
   }
 
-  static Widget _pushComponent() {
+  static Future<void> _pushReplacementCallback({
+    required BuildContext context,
+    required Widget route,
+    required String routeName,
+  }) async {
+    await Future.delayed(Duration.zero);
+
+    AprovacaoNavigator.pushReplacement(
+      context: context, 
+      route: route, 
+      routeName: routeName,
+    );
+  }
+
+  static Widget _emptyComponent() {
     return SizedBox.shrink();
   }
 
-  static Widget _replacementComponent() {
-    return Scaffold();
-  }
-
-  static Widget _popComponent() {
-    return SizedBox.shrink();
+  static Widget _replacementComponent({
+    required Color? color,
+  }) {
+    return color != null 
+      ? Scaffold(
+          backgroundColor: color,
+        )
+      : Scaffold();
   }
 }

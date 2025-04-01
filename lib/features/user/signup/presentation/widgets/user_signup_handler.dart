@@ -1,8 +1,8 @@
-import 'package:aprovacao/core/navigation/arguments/user_args.dart';
 import 'package:aprovacao/core/navigation/navigators/navigator_builder.dart';
 import 'package:aprovacao/core/navigation/routes/routes.dart';
-import 'package:aprovacao/core/widgets/snacknar/biome_snackbar_error.dart';
-import 'package:aprovacao/core/widgets/snacknar/biome_snackbar_success.dart';
+import 'package:aprovacao/core/widgets/snacknar/aprovacao_snackbar_error.dart';
+import 'package:aprovacao/core/widgets/snacknar/aprovacao_snackbar_success.dart';
+import 'package:aprovacao/features/biome/list/presentation/pages/biomes_list_page.dart';
 import 'package:aprovacao/features/user/signup/presentation/stores/signup_controller.dart';
 import 'package:aprovacao/features/user/signup/presentation/stores/signup_state.dart';
 import 'package:flutter/material.dart';
@@ -29,18 +29,18 @@ class UserSignUpHandler extends StatelessWidget {
       valueListenable: signUpController,
       builder: (context, state, child) {
         if(state is SignUpSuccess) {
-          DevProSnackBarSuccess.show(
+          AprovacaoSnackBarSuccess.show(
             context: context,
             title: 'Usuário criado com sucesso!',
           );
 
-          DevProNavigatorBuilder.pushReplacement(
-            context: context, 
+          AprovacaoNavigatorBuilder.pushReplacement(
+            context: context,
+            route: BiomesListPage(user: state.loggedUser),
             routeName: Routes.biomesList, 
-            args: UserArgs(user: state.loggedUser),
           );
         } else if(state is SignUpError) {
-          DevProSnackBarError.show(
+          AprovacaoSnackBarError.show(
             context: context,
             title: state.errorMessage,
             message: 'Por favor, tente prosseguir em alguns instantes',

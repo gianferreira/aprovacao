@@ -1,6 +1,6 @@
-import 'package:aprovacao/core/navigation/arguments/biome_args.dart';
 import 'package:aprovacao/core/navigation/navigators/navigator.dart';
 import 'package:aprovacao/core/navigation/routes/routes.dart';
+import 'package:aprovacao/features/biome/details/presentation/pages/biome_details_page.dart';
 import 'package:aprovacao/features/biome/list/domain/entities/biome_entity.dart';
 import 'package:aprovacao/features/user/signup/domain/entities/user_entity.dart';
 import 'package:flutter/material.dart';
@@ -19,13 +19,13 @@ class BiomeItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        DevProNavigator.push(
+        AprovacaoNavigator.push(
           context: context,
-          routeName: Routes.biomesDetails,
-          args: BiomeArgs(
-            biome: biome,
-            user: user
+          route: BiomeDetailsPage(
+            biome: biome, 
+            user: user,
           ),
+          routeName: Routes.biomesDetails,
         );
       },
       borderRadius: BorderRadius.circular(24.0),

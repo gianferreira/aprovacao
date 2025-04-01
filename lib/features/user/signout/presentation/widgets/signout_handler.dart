@@ -1,7 +1,7 @@
-import 'package:aprovacao/core/navigation/arguments/args.dart';
 import 'package:aprovacao/core/navigation/navigators/navigator_builder.dart';
 import 'package:aprovacao/core/navigation/routes/routes.dart';
-import 'package:aprovacao/core/widgets/snacknar/biome_snackbar_error.dart';
+import 'package:aprovacao/core/widgets/snacknar/aprovacao_snackbar_error.dart';
+import 'package:aprovacao/features/user/signin/presentation/pages/user_signin_page.dart';
 import 'package:aprovacao/features/user/signout/presentation/stores/signout_controller.dart';
 import 'package:aprovacao/features/user/signout/presentation/stores/signout_state.dart';
 import 'package:flutter/material.dart';
@@ -38,13 +38,13 @@ class _SignoutHandlerState extends State<SignoutHandler> {
       valueListenable: signoutController,
       builder: (context, state, child) {
         if(state is SignoutSuccess) {
-          DevProNavigatorBuilder.pushReplacement(
+          AprovacaoNavigatorBuilder.pushReplacement(
             context: context, 
+            route: UserSignInPage(),
             routeName: Routes.signIn,
-            args: NoArgs(),
           );
         } else if(state is SignoutError) {
-          DevProSnackBarError.show(
+          AprovacaoSnackBarError.show(
             context: context,
             title: state.errorMessage,
             message: 'Por favor, tente prosseguir em alguns instantes',

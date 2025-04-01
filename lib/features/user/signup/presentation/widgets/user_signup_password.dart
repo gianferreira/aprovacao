@@ -12,7 +12,7 @@ class UserSIgnupPassowrdCreatopm extends StatelessWidget with PasswordFormValida
 
   @override
   Widget build(BuildContext context) {
-    return BiomeTextPasswordField(
+    return AprovacaoTextPasswordField(
       label: 'Senha',
       hintText: 'Informe a sua senha para acesso',
       maxLines: 1,
