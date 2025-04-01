@@ -1,4 +1,4 @@
-mixin BiomeFormValidations {
+mixin AprovacaoFormValidations {
   String? isNotEmpty(String? value) {
     if(value?.isEmpty ?? true) return 'Esse campo é obrigatório';
 

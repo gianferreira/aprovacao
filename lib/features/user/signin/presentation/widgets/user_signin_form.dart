@@ -3,7 +3,7 @@ import 'package:aprovacao/core/widgets/text_fields/text_form_field.dart';
 import 'package:aprovacao/core/widgets/text_fields/text_password_field.dart';
 import 'package:flutter/material.dart';
 
-class UserSignInForm extends StatelessWidget with BiomeFormValidations {
+class UserSignInForm extends StatelessWidget with AprovacaoFormValidations {
   const UserSignInForm({
     super.key,
     required this.formKey,
