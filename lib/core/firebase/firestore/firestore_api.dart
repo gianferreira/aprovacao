@@ -32,15 +32,15 @@ class FirestoreAPI {
     try {
       List<Map<String, dynamic>> itens = [];
 
-      await db.collection('contributions').get().then((event) {
-        for (var doc in event.docs) {
-          itens.add(doc.data());
-        }
-      });
+      final event = await db.collection('contributions')
+        .where('biomeId', isEqualTo: biomeId)
+        .get();
+      
+      for (var doc in event.docs) {
+        itens.add(doc.data());
+      }
 
-      final filteredItens = itens.where((element) => element['biomeId'] == biomeId).toList();
-
-      return filteredItens;
+      return itens;
     } catch (err) {
       throw ServerFailure(err.hashCode);
     }
