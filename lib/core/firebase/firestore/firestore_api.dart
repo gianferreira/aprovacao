@@ -30,15 +30,13 @@ class FirestoreAPI {
     required String biomeId,
   }) async {
     try {
-      List<Map<String, dynamic>> itens = [];
-
       final event = await db.collection('contributions')
         .where('biomeId', isEqualTo: biomeId)
         .get();
       
-      for (var doc in event.docs) {
-        itens.add(doc.data());
-      }
+      List<Map<String, dynamic>> itens = event.docs.map(
+        (document) => document.data()
+      ).toList();
 
       return itens;
     } catch (err) {
