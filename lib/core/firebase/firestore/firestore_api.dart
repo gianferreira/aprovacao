@@ -1,6 +1,5 @@
 import 'package:aprovacao/core/arch/failures/failures.dart';
-import 'package:aprovacao/features/contributions/list/data/models/contributions_model.dart';
-import 'package:aprovacao/features/contributions/list/domain/entities/contributions_entity.dart';
+import 'package:aprovacao/features/certifications/list/domain/entities/certification_entity.dart';
 import 'package:aprovacao/features/user/signup/data/models/user_model.dart';
 import 'package:aprovacao/features/user/signup/domain/entities/user_entity.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -9,40 +8,6 @@ class FirestoreAPI {
   FirestoreAPI();
 
   final FirebaseFirestore db = FirebaseFirestore.instance;
-
-  Future<List<Map<String, dynamic>>> getBiomes() async {
-    try {
-      List<Map<String, dynamic>> itens = [];
-
-      await db.collection('biomes').get().then((event) {
-        for (var doc in event.docs) {
-          itens.add(doc.data());
-        }
-      });
-
-      return itens;
-    } catch (err) {
-      throw ServerFailure(err.hashCode);
-    }
-  }
-
-  Future<List<Map<String, dynamic>>> getContributionsFromBiome({
-    required String biomeId,
-  }) async {
-    try {
-      final event = await db.collection('contributions')
-        .where('biomeId', isEqualTo: biomeId)
-        .get();
-      
-      List<Map<String, dynamic>> itens = event.docs.map(
-        (document) => document.data()
-      ).toList();
-
-      return itens;
-    } catch (err) {
-      throw ServerFailure(err.hashCode);
-    }
-  }
 
   Future<UserEntity> getUser({
     required String userId,
@@ -78,15 +43,39 @@ class FirestoreAPI {
     }
   }
 
-  Future<ContributionEntity> createContribution({
-    required ContributionEntity contribution,
+  Future<CertificationsSnapshots> getCertifications({
+    required String userId,
   }) async {
     try {
-      final json = ContributionModel.toJson(contribution);
+      final userCertificationsSnaps = await db
+        .collection('users_certifications')
+        .where('user_id', isEqualTo: userId)
+        .orderBy('expiresIn')
+        .get();
 
-      await db.collection('contributions').doc(contribution.id).set(json);
+      final userCertificationsIds = userCertificationsSnaps.docs.map(
+        (document) => document['id'].toString(),
+      ).toList();
 
-      return contribution;
+      final certificationsSnaps = await db
+        .collection('certifications')
+        .where('id', whereIn: userCertificationsIds)
+        .get();
+
+      final userCertifications = userCertificationsSnaps.docs.map(
+        (document) => document.data()
+      ).toList();
+
+      final certifications = certificationsSnaps.docs.map(
+        (document) => document.data()
+      ).toList();
+
+      CertificationsSnapshots snapshots = (
+        userCertifications: userCertifications, 
+        certifications: certifications,
+      );
+
+      return snapshots;
     } catch (err) {
       throw ServerFailure(err.hashCode);
     }

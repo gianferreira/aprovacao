@@ -1,7 +1,7 @@
 import 'package:aprovacao/core/navigation/navigators/navigator_builder.dart';
 import 'package:aprovacao/core/navigation/routes/routes.dart';
 import 'package:aprovacao/core/widgets/snacknar/aprovacao_snackbar_error.dart';
-import 'package:aprovacao/features/biome/list/presentation/pages/biomes_list_page.dart';
+import 'package:aprovacao/features/certifications/list/presentation/pages/certifications_list_page.dart';
 import 'package:aprovacao/features/user/signin/presentation/stores/signin_controller.dart';
 import 'package:aprovacao/features/user/signin/presentation/stores/signin_state.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +28,7 @@ class UserSignInHandler extends StatelessWidget {
         if(state is SignInSuccess) {
           AprovacaoNavigatorBuilder.pushReplacement(
             context: context, 
-            route: BiomesListPage(user: state.loggedUser),
+            route: CertificationsListPage(user: state.loggedUser),
             routeName: Routes.biomesList,
           );
         } else if(state is SignInError) {
