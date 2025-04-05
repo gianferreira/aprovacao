@@ -1,5 +1,5 @@
 import 'package:aprovacao/core/validators/field_validators.dart';
-import 'package:aprovacao/core/widgets/text_fields/text_form_field.dart';
+import 'package:aprovacao/core/widgets/text_field/aprovacao_text_field.dart';
 import 'package:aprovacao/features/user/signup/presentation/widgets/user_signup_password.dart';
 import 'package:flutter/material.dart';
 
@@ -23,11 +23,10 @@ class UserSignUpForm extends StatelessWidget with AprovacaoFormValidations {
       key: formKey,
       child: Column(
         children: <Widget>[
-          BiomeTextFormField(
+          AprovacaoTextFormField(
             label: 'Nome',
             hintText: 'Insira o seu nome e sobrenome',
-            maxLines: 1,
-            minLines: 1,
+            keyboardType: TextInputType.text,
             textFieldController: nameTextController,
             textInputAction: TextInputAction.next,
             validator: (value) => combine([
@@ -35,21 +34,19 @@ class UserSignUpForm extends StatelessWidget with AprovacaoFormValidations {
               () => hasMultipleWords(value),
             ]),
           ),
-          const SizedBox(height: 16.0),
-          BiomeTextFormField(
+          AprovacaoTextFormField(
             label: 'E-mail',
-            hintText: 'Informe o seu e-mail para acesso',
-            maxLines: 1,
-            minLines: 1,
+            hintText: 'Informe o seu e-mail',
+            keyboardType: TextInputType.emailAddress,
             textFieldController: userTextController,
+            textCapitalization: TextCapitalization.none,
             textInputAction: TextInputAction.next,
             validator: (value) => combine([
               () => isNotEmpty(value),
               () => isEmailValid(value),
             ]),
           ),
-          const SizedBox(height: 16.0),
-          UserSIgnupPassowrdCreatopm(
+          UserSIgnupPassowrdCreation(
             passwordTextController: passwordTextController,
           ),
         ],

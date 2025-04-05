@@ -1,3 +1,5 @@
+import 'package:aprovacao/core/widgets/structure/aprovacao_app_bar.dart';
+import 'package:aprovacao/core/widgets/structure/aprovacao_scaffold_view.dart';
 import 'package:aprovacao/features/certifications/list/domain/entities/certification_entity.dart';
 import 'package:aprovacao/features/certifications/list/presentation/widgets/certification_item.dart';
 import 'package:aprovacao/features/user/signout/presentation/widgets/signout_handler.dart';
@@ -16,42 +18,30 @@ class CertificationsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.background,
-        leading: const SignoutHandler(),
-        elevation: 0.0,
-        title: const Text(
-          'Meus Estudos',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 16.0,
-            color: Colors.white,
-            fontFamily: 'MyriadProRegular',
-          ),
-        ),
+    return AprovacaoScaffoldView(
+      appBar: AprovacaoAppBar(
+        title: 'Meus Estudos',
+        hasBackButton: false,
+        onBackButtonPressed: () {},
+        customLeading: SignoutHandler(),
       ),
-      body: ListView.separated(
-        physics: const ClampingScrollPhysics(),
-        itemCount: certifications.length,
-        separatorBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16.0,
+      body: SingleChildScrollView(
+        physics: ClampingScrollPhysics(),
+        child: Column(
+          children: <Widget>[
+            ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: certifications.length,
+              itemBuilder: (context, index) {
+                return CertificationItem(
+                  certification: certifications[index],
+                  user: user,
+                );
+              },
             ),
-            child: Divider(
-              thickness: 0.5,
-              height: 1.0,
-              color: Theme.of(context).colorScheme.primary,
-            ),
-          );
-        },
-        itemBuilder: (context, index) {
-          return CertificationItem(
-            certification: certifications[index],
-            user: user,
-          );
-        },
+          ],
+        ),
       ),
     );
   }

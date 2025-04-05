@@ -1,24 +1,28 @@
+import 'package:aprovacao/core/widgets/snackbar/snackbar_progress_indicator.dart';
 import 'package:flutter/material.dart';
 
-class AprovacaoSnackBarError {
+class AprovacaoSnackBarInfo {
   static show({
     required BuildContext context,
     String title = '',
     String message = '',
+    bool scrollable = true,
     Duration duration = const Duration(milliseconds: 4000),
   }) {
-    showErrorSnackBar(
+    _showInfoSnackBar(
       context: context,
       title: title,
       message: message,
+      scrollable: scrollable,
       duration: duration,
     );
   }
 
-  static Future<void> showErrorSnackBar({
+  static Future<void> _showInfoSnackBar({
     required BuildContext context,
     required String title,
     required String message,
+    required bool scrollable,
     required Duration duration,
   }) async {
     await Future.delayed(Duration.zero);
@@ -33,7 +37,7 @@ class AprovacaoSnackBarError {
         padding: EdgeInsets.zero,
         content: Container(
           decoration: BoxDecoration(
-            color: const Color(0xFFE6C6C6),
+            color: Color(0xFFDBE5EB),
             borderRadius: BorderRadius.circular(4.0),
           ),
           child: Column(
@@ -49,38 +53,51 @@ class AprovacaoSnackBarError {
                   children: <Widget>[
                     Row(
                       children: <Widget>[
-                        const Icon(
-                          Icons.error,
-                          color: Color(0xFF7F3131),
+                        Icon(
+                          Icons.info,
+                          color: Color(0xFF375A86),
                           size: 20.0,
                         ),
                         const SizedBox(width: 8.0),
                         Expanded(
                           child: Text(
                             title,
-                            style: const TextStyle(
+                            style: TextStyle(
+                              fontFamily: 'MyriadProRegular',
                               height: 1.2,
                               fontSize: 14.0,
                               fontWeight: FontWeight.w600,
-                              color: Color(0xFF7F3131),
+                              color: Color(0xFF375A86),
                             ),
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 8.0),
-                    Text(
-                      message,
-                      style: const TextStyle(
-                        height: 1.2,
-                        fontSize: 12.0,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xFF7F3131),
+                    Visibility(
+                      visible: message.isNotEmpty,
+                      child: SizedBox(height: 8.0),
+                    ),
+                    Visibility(
+                      visible: message.isNotEmpty,
+                      child: Text(
+                        message,
+                        style: TextStyle(
+                          fontFamily: 'MyriadProRegular',
+                          height: 1.2,
+                          fontSize: 12.0,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF375A86),
+                        ),
                       ),
                     ),
                     const SizedBox(height: 16.0),
                   ],
                 ),
+              ),
+              SnackBarProgressIndicator(
+                valueColor: Color(0xFF375A86),
+                backGroundColor: Color(0xFFDBE5EB),
+                duration: duration,
               ),
             ],
           ),

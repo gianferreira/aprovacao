@@ -1,6 +1,7 @@
 import 'package:aprovacao/core/navigation/navigators/navigator_builder.dart';
 import 'package:aprovacao/core/navigation/routes/routes.dart';
-import 'package:aprovacao/core/widgets/snacknar/aprovacao_snackbar_error.dart';
+import 'package:aprovacao/core/widgets/snackbar/aprovacao_snackbar_error.dart';
+import 'package:aprovacao/core/widgets/warning/aprovacao_logout_sheet.dart';
 import 'package:aprovacao/features/user/signin/presentation/pages/user_signin_page.dart';
 import 'package:aprovacao/features/user/signout/presentation/stores/signout_controller.dart';
 import 'package:aprovacao/features/user/signout/presentation/stores/signout_state.dart';
@@ -38,6 +39,7 @@ class _SignoutHandlerState extends State<SignoutHandler> {
       valueListenable: signoutController,
       builder: (context, state, child) {
         if(state is SignoutSuccess) {
+          AprovacaoNavigatorBuilder.pop(context: context);
           AprovacaoNavigatorBuilder.pushReplacement(
             context: context, 
             route: UserSignInPage(),
@@ -51,15 +53,10 @@ class _SignoutHandlerState extends State<SignoutHandler> {
           );
         }
 
-        return GestureDetector(
-          onTap: () {
+        return AprovacaoLogoutBottomSheet(
+          onLogout: () {
             signoutController.logout();
           },
-          child: Icon(
-            Icons.logout_sharp,
-            color: Colors.white,
-            size: 18.0,
-          ),
         );
       }
     );

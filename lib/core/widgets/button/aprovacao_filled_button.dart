@@ -1,27 +1,25 @@
 import 'package:flutter/material.dart';
 
-class CertificationButton extends StatelessWidget {
-  const CertificationButton({
+class AprovacaoFilledButton extends StatelessWidget {
+  const AprovacaoFilledButton({
     Key? key,
     required this.text,
     required this.onPressed,
-    this.isDisable = false,
     this.isLoading = false,
-  }) : super(key: key);
+    this.isDisable = false,
+    this.padding = const EdgeInsets.all(16.0),
+  });
 
   final String text;
   final VoidCallback onPressed;
   final bool isLoading;
   final bool isDisable;
+  final EdgeInsets padding;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        left: 16.0,
-        right: 16.0,
-        bottom: 24.0,
-      ),
+      padding: padding,
       child: Container(
         height: 48.0,
         width: double.infinity,
@@ -29,7 +27,7 @@ class CertificationButton extends StatelessWidget {
           style: FilledButton.styleFrom(
             disabledBackgroundColor: Color(0xFFF0F0F0),
             disabledForegroundColor: Color(0xFFB3B3B3),
-            backgroundColor: Color(0xFF0075FF),
+            backgroundColor: Color(0xFF0B1C40),
             foregroundColor: Color(0xFFFFFFFF),
             textStyle: TextStyle(
               fontFamily: 'MyriadProRegular',
@@ -41,10 +39,7 @@ class CertificationButton extends StatelessWidget {
                 : Color(0xFFFFFFFF),
             ),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(4.0),
-                bottomRight: Radius.circular(4.0),
-              ),
+              borderRadius: BorderRadius.circular(4.0),
             ),
             elevation: 0,
           ),
@@ -59,35 +54,13 @@ class CertificationButton extends StatelessWidget {
                   strokeWidth: 2.0,
                 ),
               )
-            : Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Icon(
-                    Icons.account_balance_wallet_outlined,
-                    color: Color(0xFFFFFFFF),
-                    size: 18.0,
-                  ),
-                  const SizedBox(width: 12.0),
-                  Text(
-                    text,
-                    style: TextStyle(
-                      fontFamily: 'MyriadProRegular',
-                      height: 1.2,
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.w600,
-                      color: isDisable
-                        ? Color(0xFFB3B3B3)
-                        : Color(0xFFFFFFFF),
-                    ),
-                  ),
-                ],
-              ),
+            : Text(text),
           onPressed: isDisable 
             ? null
             : isLoading
               ? () {}
               : onPressed,
-        ), 
+        ),
       ),
     );
   }

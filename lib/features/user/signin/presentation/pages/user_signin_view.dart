@@ -1,4 +1,8 @@
+import 'package:aprovacao/core/navigation/navigators/navigator.dart';
+import 'package:aprovacao/core/navigation/routes/routes.dart';
+import 'package:aprovacao/core/widgets/button/aprovacao_tonal_button.dart';
 import 'package:aprovacao/features/user/signin/presentation/stores/signin_controller.dart';
+import 'package:aprovacao/features/user/signup/presentation/pages/user_signup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:aprovacao/features/user/signin/presentation/widgets/user_signin_form.dart';
 import 'package:aprovacao/features/user/signin/presentation/widgets/user_signin_handler.dart';
@@ -46,7 +50,7 @@ class _UserSignInViewState extends State<UserSignInView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Color(0xFF0B1C40),
       body: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 16.0,
@@ -68,7 +72,20 @@ class _UserSignInViewState extends State<UserSignInView> {
               passwordTextController: passwordTextController,
               formKey: formKey,
             ),
-            const SizedBox(height: 8.0),
+            const SizedBox(height: 16.0),
+            AprovacaoTonalButton(
+              text: 'Cadastrar-se',
+              padding: EdgeInsets.only(
+                bottom: 16.0,
+              ),
+              onPressed: () {
+                AprovacaoNavigator.push(
+                  context: context, 
+                  route: UserSignUpPage(), 
+                  routeName: Routes.signUp
+                );
+              }, 
+            ),
           ],
         ),
       ),

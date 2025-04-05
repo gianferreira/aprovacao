@@ -1,7 +1,8 @@
 import 'package:aprovacao/core/navigation/navigators/navigator_builder.dart';
 import 'package:aprovacao/core/navigation/routes/routes.dart';
-import 'package:aprovacao/core/widgets/snacknar/aprovacao_snackbar_error.dart';
-import 'package:aprovacao/core/widgets/snacknar/aprovacao_snackbar_success.dart';
+import 'package:aprovacao/core/widgets/button/aprovacao_sign_button.dart';
+import 'package:aprovacao/core/widgets/snackbar/aprovacao_snackbar_error.dart';
+import 'package:aprovacao/core/widgets/snackbar/aprovacao_snackbar_success.dart';
 import 'package:aprovacao/features/certifications/list/presentation/pages/certifications_list_page.dart';
 import 'package:aprovacao/features/user/signup/presentation/stores/signup_controller.dart';
 import 'package:aprovacao/features/user/signup/presentation/stores/signup_state.dart';
@@ -34,6 +35,7 @@ class UserSignUpHandler extends StatelessWidget {
             title: 'Usuário criado com sucesso!',
           );
 
+          AprovacaoNavigatorBuilder.pop(context: context);
           AprovacaoNavigatorBuilder.pushReplacement(
             context: context,
             route: CertificationsListPage(user: state.loggedUser),
@@ -47,7 +49,12 @@ class UserSignUpHandler extends StatelessWidget {
           );
         }
   
-        return FilledButton(
+        return AprovacaoSignButton(
+          text: 'Crie uma conta',
+          isLoading: state is SignUpLoading,
+          padding: EdgeInsets.only(
+            bottom: 16.0,
+          ),
           onPressed: () {
             if(formKey.currentState?.validate() ?? false) {
               signUpController.signUp(
@@ -56,16 +63,7 @@ class UserSignUpHandler extends StatelessWidget {
                 password: passwordTextController.text,
               );
             }
-          }, 
-          child: state is SignUpLoading
-            ? SizedBox(
-                height: 14.0,
-                width: 14.0,
-                child: CircularProgressIndicator(
-                  color: Theme.of(context).colorScheme.background,
-                ),
-              )
-            : const Text('Crie uma conta'),
+          },
         );
       }
     );

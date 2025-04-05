@@ -24,3 +24,18 @@ typedef ModulesSnapshots =  ({
   List<Map<String, dynamic>> userModules, 
   List<Map<String, dynamic>> modules,
 }); 
+
+extension ModulesExtension on List<ModuleEntity> {
+  ModuleEntity get currentModule => firstWhere(
+    (element) => element.availableRevision,
+    orElse: () => finishedModules ? last : first,
+  );
+
+  bool get finishedModules => every(
+    (element) => element.availableRevision,
+  );
+}
+
+extension ModuleExtension on ModuleEntity {
+  int get sequenceId => int.parse(id);
+}

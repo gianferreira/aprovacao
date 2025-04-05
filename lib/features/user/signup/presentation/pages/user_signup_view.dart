@@ -1,4 +1,5 @@
 import 'package:aprovacao/core/navigation/navigators/navigator.dart';
+import 'package:aprovacao/core/widgets/button/aprovacao_tonal_button.dart';
 import 'package:aprovacao/features/user/signup/presentation/stores/signup_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:aprovacao/features/user/signup/presentation/widgets/user_signup_form.dart';
@@ -50,23 +51,7 @@ class _UserSignUpViewState extends State<UserSignUpView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.background,
-        leading: BackButton(
-          onPressed: () => AprovacaoNavigator.pop(context: context),
-          color: Color(0xFF0075FF),
-        ),
-        title: const Text(
-          'Criar conta',
-          style: TextStyle(
-            fontSize: 16.0,
-            fontWeight: FontWeight.w600,
-            color: Color(0xFF0075FF),
-          ),
-        ),
-        elevation: 0.0,
-      ),
+      backgroundColor: Color(0xFF0B1C40),
       body: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 16.0,
@@ -90,12 +75,15 @@ class _UserSignUpViewState extends State<UserSignUpView> {
               userTextController: userTextController,
               passwordTextController: passwordTextController,
             ),
-            const SizedBox(height: 8.0),
-            OutlinedButton(
+            const SizedBox(height: 16.0),
+            AprovacaoTonalButton(
+              text: 'Cancelar',
+              padding: EdgeInsets.only(
+                bottom: 16.0,
+              ),
               onPressed: () {
                 AprovacaoNavigator.pop(context: context);
               }, 
-              child: const Text('Cancelar'),
             ),
           ],
         ),

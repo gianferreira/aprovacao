@@ -1,109 +1,87 @@
+import 'package:aprovacao/core/navigation/navigators/navigator.dart';
+import 'package:aprovacao/core/navigation/routes/routes.dart';
 import 'package:aprovacao/features/certifications/list/domain/entities/certification_entity.dart';
-import 'package:aprovacao/features/certifications/list/presentation/widgets/certification_button.dart';
+import 'package:aprovacao/features/modules/list/domain/entities/module_entity.dart';
+import 'package:aprovacao/features/modules/list/presentation/widgets/module_revision_button.dart';
+import 'package:aprovacao/features/questions/manager/presentation/pages/questions_manager_page.dart';
 import 'package:aprovacao/features/user/signup/domain/entities/user_entity.dart';
 import 'package:flutter/material.dart';
 
-class CertificationItem extends StatelessWidget {
-  const CertificationItem({
-    super.key,
+class ModuleItem extends StatelessWidget {
+  const ModuleItem({
+    Key? key,
+    required this.itemModule,
+    required this.currentModule,
     required this.certification,
     required this.user,
-  });
+  }) : super(key: key);
 
+  final ModuleEntity itemModule;
+  final ModuleEntity currentModule;
   final CertificationEntity certification;
   final UserEntity user;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Row(
       children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.only(
-            top: 24.0,
-            left: 16.0,
-            right: 16.0,
-          ),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(6.0),
-              border: Border(
-                left: BorderSide(color: Colors.white, width: 0.5),
-                right: BorderSide(color: Colors.white, width: 0.5),
-                top: BorderSide(color: Colors.white, width: 0.5),
-              ),
-              color: Colors.transparent,
-            ),
-            child: Column(
-              children: <Widget>[
-                Stack(
-                  alignment: Alignment.center,
-                  children: <Widget>[
-                    ClipRRect(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(12.0),
-                        topRight:  Radius.circular(12.0),
-                      ),
-                      child: Image.asset(
-                        'assets/cea.png',
-                        fit: BoxFit.fitWidth,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16.0,
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: <Widget>[
-                          const SizedBox(height: 70.0),
-                          Text(
-                            certification.subtitle,
-                            textAlign: TextAlign.right,
-                            style: TextStyle(
-                              fontSize: 18.0,
-                              height: 1.0,
-                              fontFamily: 'MyriadProRegular',
-                              fontWeight: FontWeight.bold,
-                              decorationColor: Colors.black,
-                              decorationThickness: 2.0,
-                              color: Colors.white,
-                            ),
-                          ),
-                          Text(
-                            certification.title,
-                            textAlign: TextAlign.right,
-                            style: TextStyle(
-                              fontSize: 72.0,
-                              height: 1.2,
-                              fontFamily: 'MyriadProRegular',
-                              fontWeight: FontWeight.bold,
-                              decorationColor: Colors.black,
-                              decorationThickness: 2.0,
-                              color: Colors.white
-                            ),
-                          ),
-                          const SizedBox(height: 12.0),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                Container(),
-              ],
-            ),
+        Container(
+          height: 36.0,
+          width: 36.0,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: itemModule.sequenceId > currentModule.sequenceId
+              ? Color(0xFFE3E3E3)
+              : Color(0xFF0075FF),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(
-            left: 16.0,
-            right: 16.0,
-            bottom: 24.0,
+        const SizedBox(width: 16.0),
+        Expanded(
+          child: Text(
+            itemModule.title,
+            style: itemModule.sequenceId > currentModule.sequenceId
+              ? TextStyle(
+                  fontFamily: 'MyriadProRegular',
+                  height: 1.2,
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xFF5F5F5F),
+                )
+              : itemModule.sequenceId == currentModule.sequenceId
+                ? TextStyle(
+                    fontFamily: 'MyriadProRegular',
+                    height: 1.2,
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w600,
+                    color: Color(0xFF0075FF),
+                  )  
+                : TextStyle(
+                    fontFamily: 'MyriadProRegular',
+                    height: 1.2,
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFF0B1C40),
+                  ),
           ),
-          child: CertificationButton(
-            text: 'Acessar Módulos',
-            onPressed: () {
-              print('vrau');
-            },
+        ),
+        Visibility(
+          visible: currentModule.sequenceId > itemModule.sequenceId,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 16.0),
+            child: ModuleRevisionButton(
+              onPressed: () {
+                AprovacaoNavigator.push(
+                  context: context,
+                  route: QuestionsManagerPage(
+                    module: itemModule, 
+                    certification: certification, 
+                    user: user, 
+                    revision: true,
+                  ),
+                  routeName: Routes.questionsManager,
+                );
+              },
+            ),
           ),
         ),
       ],

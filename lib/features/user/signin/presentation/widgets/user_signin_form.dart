@@ -1,6 +1,6 @@
 import 'package:aprovacao/core/validators/field_validators.dart';
-import 'package:aprovacao/core/widgets/text_fields/text_form_field.dart';
-import 'package:aprovacao/core/widgets/text_fields/text_password_field.dart';
+import 'package:aprovacao/core/widgets/text_field/aprovacao_password_field.dart';
+import 'package:aprovacao/core/widgets/text_field/aprovacao_text_field.dart';
 import 'package:flutter/material.dart';
 
 class UserSignInForm extends StatelessWidget with AprovacaoFormValidations {
@@ -21,11 +21,11 @@ class UserSignInForm extends StatelessWidget with AprovacaoFormValidations {
       key: formKey,
       child: Column(
         children: <Widget>[
-          BiomeTextFormField(
+          AprovacaoTextFormField(
             label: 'E-mail',
             hintText: 'Insira o seu e-mail',
-            maxLines: 1,
-            minLines: 1,
+            keyboardType: TextInputType.emailAddress,
+            textCapitalization: TextCapitalization.none,
             textFieldController: userTextController,
             textInputAction: TextInputAction.next,
             validator: (value) => combine([
@@ -33,14 +33,11 @@ class UserSignInForm extends StatelessWidget with AprovacaoFormValidations {
               () => isEmailValid(value),
             ]),
           ),
-          const SizedBox(height: 16.0),
-          AprovacaoTextPasswordField(
+          AprovacaoPasswordField(
             label: 'Senha',
             hintText: 'Insira a sua senha',
-            maxLines: 1,
-            minLines: 1,
             textFieldController: passwordTextController,
-            textInputAction: TextInputAction.done,
+            confirmation: true,
             validator: (value) => combine([
               () => isNotEmpty(value),
             ]),

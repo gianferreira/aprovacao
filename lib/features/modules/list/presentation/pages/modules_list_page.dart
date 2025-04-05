@@ -1,3 +1,6 @@
+import 'package:aprovacao/core/navigation/navigators/navigator_builder.dart';
+import 'package:aprovacao/core/widgets/snackbar/aprovacao_snackbar_error.dart';
+import 'package:aprovacao/core/widgets/structure/aprovacao_loading_view.dart';
 import 'package:aprovacao/features/modules/list/presentation/stores/modules_state.dart';
 import 'package:aprovacao/features/certifications/list/domain/entities/certification_entity.dart';
 import 'package:aprovacao/features/modules/list/presentation/pages/modules_list_view.dart';
@@ -27,6 +30,10 @@ class _ModulesListPageState extends State<ModulesListPage> {
   @override
   void initState() {
     modulesController = modules_dependencies.sl<ModulesController>();
+    modulesController.loadModules(
+      userId: widget.user.id,
+      certificationId: widget.certification.id,
+    );
 
     super.initState();
   }
@@ -40,11 +47,6 @@ class _ModulesListPageState extends State<ModulesListPage> {
   
   @override
   Widget build(BuildContext context) {
-    modulesController.loadModules(
-      userId: widget.user.id,
-      certificationId: widget.certification.id,
-    );
-
     return ValueListenableBuilder<ModulesState>(
       valueListenable: modulesController, 
       builder: (context, state, child) {
@@ -55,19 +57,15 @@ class _ModulesListPageState extends State<ModulesListPage> {
             user: widget.user,
           );
         } else if(state is ModulesLoading) {
-          return const Scaffold(
-            body: Center(
-              child: CircularProgressIndicator(
-                color: Color(0xFF0075FF),
-              ),
-            ),
-          );
+          return AprovacaoLoadingView();
         } else {
-          return const Scaffold(
-            body: Center(
-              child: Text('Deu ruim!'),
-            ),
+          AprovacaoSnackBarError.show(
+            context: context,
+            title: 'Ocorreu um erro, ao tentar carregar os módulos da certificação.',
+            message: 'Por favor, tente prosseguir em alguns instantes.',
           );
+          
+          return AprovacaoNavigatorBuilder.pop(context: context);
         }
       },
     );

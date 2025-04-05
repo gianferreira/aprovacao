@@ -58,7 +58,7 @@ class CertificationItem extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: <Widget>[
-                          const SizedBox(height: 50.0),
+                          const SizedBox(height: 70.0),
                           Text(
                             certification.subtitle,
                             textAlign: TextAlign.right,
@@ -67,7 +67,7 @@ class CertificationItem extends StatelessWidget {
                               fontSize: 18.0,
                               height: 1.0,
                               fontWeight: FontWeight.bold,
-                              decorationColor: Colors.black,
+                              decorationColor: Colors.white,
                               decorationThickness: 2.0,
                               color: Colors.white,
                             ),
@@ -94,25 +94,18 @@ class CertificationItem extends StatelessWidget {
             ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(
-            left: 16.0,
-            right: 16.0,
-            bottom: 24.0,
-          ),
-          child: CertificationButton(
-            text: 'Acessar Módulos',
-            onPressed: () {
-              AprovacaoNavigator.push(
-                context: context, 
-                route: ModulesListPage(
-                  certification: certification,
-                  user: user,
-                ), 
-                routeName: Routes.modulesList,
-              );
-            },
-          ),
+        CertificationButton(
+          text: 'Acessar Módulos',
+          onPressed: () {
+            AprovacaoNavigator.push(
+              context: context, 
+              route: ModulesListPage(
+                certification: certification,
+                user: user,
+              ), 
+              routeName: Routes.modulesList,
+            );
+          },
         ),
       ],
     );
