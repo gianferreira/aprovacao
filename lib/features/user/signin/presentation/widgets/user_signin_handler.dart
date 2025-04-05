@@ -29,7 +29,7 @@ class UserSignInHandler extends StatelessWidget {
           AprovacaoNavigatorBuilder.pushReplacement(
             context: context, 
             route: CertificationsListPage(user: state.loggedUser),
-            routeName: Routes.biomesList,
+            routeName: Routes.certificationsList,
           );
         } else if(state is SignInError) {
           AprovacaoSnackBarError.show(

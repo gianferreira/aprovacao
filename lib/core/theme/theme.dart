@@ -29,17 +29,7 @@ class AprovacaoTheme {
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
         backgroundColor: Colors.white,
-        foregroundColor: Colors.green,
-        padding: const EdgeInsets.all(8.0),
-        textStyle: const TextStyle(
-          color: Colors.green,
-          fontSize: 14.0,
-          fontWeight: FontWeight.w700,
-        ),
-        side: const BorderSide(
-          color: Colors.green,
-          width: 1.0,
-        ),
+        foregroundColor: Color(0xFF02CEFD),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(4.0),
         ),

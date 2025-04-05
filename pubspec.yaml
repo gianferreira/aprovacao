@@ -34,3 +34,29 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+
+  fonts:
+    - family: RobotoRegular
+      fonts:
+        - asset: fonts/Roboto-Regular.ttf
+    - family: RobotoBold
+      fonts:
+        - asset: fonts/Roboto-Bold.ttf
+    - family: RobotoLight
+      fonts:
+        - asset: fonts/Roboto-Light.ttf
+    - family: RobotoMedium
+      fonts:
+        - asset: fonts/Roboto-Medium.ttf
+    - family: FontAwesome
+      fonts:
+        - asset: fonts/fa-light-300.ttf
+    - family: MyriadProBold
+      fonts:
+        - asset: fonts/MYRIADPRO-BOLD.OTF
+    - family: MyriadProRegular
+      fonts:
+        - asset: fonts/MYRIADPRO-REGULAR.OTF
+    - family: MyriadProSemiBold
+      fonts:
+        - asset: fonts/MYRIADPRO-SEMIBOLD.OTF

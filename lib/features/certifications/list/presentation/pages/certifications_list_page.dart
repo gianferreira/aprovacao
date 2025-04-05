@@ -53,7 +53,7 @@ class _CertificationsListPageState extends State<CertificationsListPage> {
           return const Scaffold(
             body: Center(
               child: CircularProgressIndicator(
-                color: Colors.green,
+                color: Color(0xFF0075FF),
               ),
             ),
           );

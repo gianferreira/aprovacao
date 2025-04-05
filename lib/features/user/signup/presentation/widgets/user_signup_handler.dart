@@ -37,7 +37,7 @@ class UserSignUpHandler extends StatelessWidget {
           AprovacaoNavigatorBuilder.pushReplacement(
             context: context,
             route: CertificationsListPage(user: state.loggedUser),
-            routeName: Routes.biomesList, 
+            routeName: Routes.certificationsList, 
           );
         } else if(state is SignUpError) {
           AprovacaoSnackBarError.show(

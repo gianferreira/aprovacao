@@ -50,11 +50,10 @@ class FirestoreAPI {
       final userCertificationsSnaps = await db
         .collection('users_certifications')
         .where('user_id', isEqualTo: userId)
-        .orderBy('expiresIn')
         .get();
 
       final userCertificationsIds = userCertificationsSnaps.docs.map(
-        (document) => document['id'].toString(),
+        (document) => document['certification_id'].toString(),
       ).toList();
 
       final certificationsSnaps = await db

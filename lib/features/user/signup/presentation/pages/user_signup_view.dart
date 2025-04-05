@@ -55,14 +55,14 @@ class _UserSignUpViewState extends State<UserSignUpView> {
         backgroundColor: Theme.of(context).colorScheme.background,
         leading: BackButton(
           onPressed: () => AprovacaoNavigator.pop(context: context),
-          color: Colors.green,
+          color: Color(0xFF0075FF),
         ),
         title: const Text(
           'Criar conta',
           style: TextStyle(
             fontSize: 16.0,
             fontWeight: FontWeight.w600,
-            color: Colors.green
+            color: Color(0xFF0075FF),
           ),
         ),
         elevation: 0.0,
