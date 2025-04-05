@@ -28,7 +28,7 @@ class CertificationButton extends StatelessWidget {
         ? () {}
         : onPressed,
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(8.0),
         child: isLoading
           ? Row(
               mainAxisAlignment: MainAxisAlignment.center,

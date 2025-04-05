@@ -1,8 +1,5 @@
-import 'package:aprovacao/core/navigation/navigators/navigator.dart';
-import 'package:aprovacao/core/navigation/routes/routes.dart';
 import 'package:aprovacao/features/certifications/list/domain/entities/certification_entity.dart';
 import 'package:aprovacao/features/certifications/list/presentation/widgets/certification_button.dart';
-import 'package:aprovacao/features/modules/list/presentation/pages/modules_list_page.dart';
 import 'package:aprovacao/features/user/signup/domain/entities/user_entity.dart';
 import 'package:flutter/material.dart';
 
@@ -58,14 +55,14 @@ class CertificationItem extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: <Widget>[
-                          const SizedBox(height: 50.0),
+                          const SizedBox(height: 70.0),
                           Text(
                             certification.subtitle,
                             textAlign: TextAlign.right,
                             style: TextStyle(
-                              fontFamily: 'MyriadProRegular',
                               fontSize: 18.0,
                               height: 1.0,
+                              fontFamily: 'MyriadProRegular',
                               fontWeight: FontWeight.bold,
                               decorationColor: Colors.black,
                               decorationThickness: 2.0,
@@ -85,11 +82,13 @@ class CertificationItem extends StatelessWidget {
                               color: Colors.white
                             ),
                           ),
+                          const SizedBox(height: 12.0),
                         ],
                       ),
                     ),
                   ],
                 ),
+                Container(),
               ],
             ),
           ),
@@ -103,14 +102,7 @@ class CertificationItem extends StatelessWidget {
           child: CertificationButton(
             text: 'Acessar Módulos',
             onPressed: () {
-              AprovacaoNavigator.push(
-                context: context, 
-                route: ModulesListPage(
-                  certification: certification,
-                  user: user,
-                ), 
-                routeName: Routes.modulesList,
-              );
+              print('vrau');
             },
           ),
         ),

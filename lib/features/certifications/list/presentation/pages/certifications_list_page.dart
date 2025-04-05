@@ -4,7 +4,7 @@ import 'package:aprovacao/features/certifications/list/presentation/stores/certi
 import 'package:aprovacao/features/user/signup/domain/entities/user_entity.dart';
 import 'package:flutter/material.dart';
 
-import 'package:aprovacao/features/certifications/certifications_injection_container.dart' as certifications_dependencies;
+import 'package:aprovacao/features/certifications/list/certifications_injection_container.dart' as certifications_dependencies;
 
 class CertificationsListPage extends StatefulWidget {
   const CertificationsListPage({

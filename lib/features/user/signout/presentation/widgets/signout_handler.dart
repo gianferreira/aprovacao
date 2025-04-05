@@ -57,7 +57,8 @@ class _SignoutHandlerState extends State<SignoutHandler> {
           },
           child: Icon(
             Icons.logout_sharp,
-            color: Theme.of(context).colorScheme.onSecondary,
+            color: Colors.white,
+            size: 18.0,
           ),
         );
       }

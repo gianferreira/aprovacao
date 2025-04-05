@@ -1,5 +1,6 @@
 import 'package:aprovacao/core/arch/failures/failures.dart';
 import 'package:aprovacao/features/certifications/list/domain/entities/certification_entity.dart';
+import 'package:aprovacao/features/modules/list/domain/entities/module_entity.dart';
 import 'package:aprovacao/features/user/signup/data/models/user_model.dart';
 import 'package:aprovacao/features/user/signup/domain/entities/user_entity.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -72,6 +73,45 @@ class FirestoreAPI {
       CertificationsSnapshots snapshots = (
         userCertifications: userCertifications, 
         certifications: certifications,
+      );
+
+      return snapshots;
+    } catch (err) {
+      throw ServerFailure(err.hashCode);
+    }
+  }
+
+  Future<ModulesSnapshots> getModules({
+    required String userId,
+    required String certificationId,
+  }) async {
+    try {
+      final modulesSnaps = await db
+        .collection('modules')
+        .where('certification_id', isEqualTo: certificationId)
+        .get();
+
+      final modulesIds = modulesSnaps.docs.map(
+        (document) => document['id'].toString(),
+      ).toList();
+
+      final userModulesSnaps = await db
+        .collection('users_modules')
+        .where('user_id', isEqualTo: userId)
+        .where('module_id', whereIn: modulesIds)
+        .get();
+
+      final userModules = userModulesSnaps.docs.map(
+        (document) => document.data()
+      ).toList();
+
+      final modules = modulesSnaps.docs.map(
+        (document) => document.data()
+      ).toList();
+
+      ModulesSnapshots snapshots = (
+        userModules: userModules, 
+        modules: modules,
       );
 
       return snapshots;
