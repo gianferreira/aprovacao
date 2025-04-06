@@ -5,6 +5,7 @@ import 'package:aprovacao/features/questions/manager/domain/entities/question_en
 class QuestionModel extends QuestionEntity {
   QuestionModel({
     required String? id,
+    required String? questionIndicator,
     required String? groupId,
     required String? correctAnswer,
     required String? description,
@@ -15,6 +16,7 @@ class QuestionModel extends QuestionEntity {
     required List<ExplanationEntity>? explanation,
   }) : super(
     id: id ?? '',
+    questionIndicator: questionIndicator ?? '',
     groupId: groupId ?? '',
     correctAnswer: correctAnswer ?? '',
     description: description ?? '',
@@ -30,6 +32,7 @@ class QuestionModel extends QuestionEntity {
   }) {
     return QuestionModel(
       id: question['id'],
+      questionIndicator: question['questionIndicator'],
       groupId: question['group_id'],
       correctAnswer: question['correctAnswer'],
       description: question['description'],

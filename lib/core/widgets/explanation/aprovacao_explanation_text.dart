@@ -7,9 +7,11 @@ class AprovacaoExplanationText extends StatelessWidget {
   const AprovacaoExplanationText({
     super.key,
     required this.explanationText,
+    required this.titleColor,
   });
 
   final List<ExplanationEntity> explanationText;
+  final Color titleColor;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +24,7 @@ class AprovacaoExplanationText extends StatelessWidget {
           if(explanationText[index].isTitle) {
             return AprovacaoExplanationTitle(
               explanation: explanationText[index],
+              titleColor: titleColor,
             );
           } else {
             return AprovacaoExplanationBody(

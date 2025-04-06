@@ -2,6 +2,7 @@ import 'package:aprovacao/core/widgets/explanation/explanation_entity.dart';
 
 class QuestionEntity {
   final String id;
+  final String questionIndicator;
   final String groupId;
   final String correctAnswer;
   final String description;
@@ -13,6 +14,7 @@ class QuestionEntity {
 
   const QuestionEntity({
     required this.id,
+    required this.questionIndicator,
     required this.groupId,
     required this.correctAnswer,
     required this.description,
@@ -33,4 +35,8 @@ extension QuestionExtension on QuestionEntity {
     thirdOption,
     fourthOption,
   ];
+
+  String get questionLabel => 'Questão $questionIndicator';
+
+  String get explanationLabel => 'Correção da Questão $questionIndicator';
 }

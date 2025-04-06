@@ -1,19 +1,19 @@
+import 'package:aprovacao/core/widgets/explanation/explanation_entity.dart';
+
 class ModuleEntity {
   final String id;
   final String title;
   final String certificationId;
-  final String icon;
-  final String presentation;
+  final List<ExplanationEntity> explanation;
   final bool availablePresentation; 
   final bool availableRevision;
-  final String userId;  
+  final String userId; 
 
   const ModuleEntity({
     required this.id,
     required this.title,
     required this.certificationId,
-    required this.icon,
-    required this.presentation,
+    required this.explanation,
     required this.availablePresentation,
     required this.availableRevision,
     required this.userId,

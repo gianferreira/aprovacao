@@ -6,6 +6,7 @@ import 'package:aprovacao/core/widgets/structure/aprovacao_app_bar.dart';
 import 'package:aprovacao/core/widgets/structure/aprovacao_scrollable_view.dart';
 import 'package:aprovacao/features/questions/feedback/presentation/pages/questions_feedback_page.dart';
 import 'package:aprovacao/features/questions/manager/domain/entities/manager_entity.dart';
+import 'package:aprovacao/features/questions/manager/domain/entities/question_entity.dart';
 import 'package:aprovacao/features/questions/question/presentation/pages/question_page.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,7 @@ class QuestionExplanationView extends StatelessWidget {
   Widget build(BuildContext context) {
     return AprovacaoScrollableView(
       appBar: AprovacaoAppBar(
-        title: manager.currentQUestion.id,
+        title: manager.currentQUestion.explanationLabel,
         hasBackButton: true,
         onBackButtonPressed: () {
           AprovacaoNavigator.pop(context: context);
@@ -30,6 +31,7 @@ class QuestionExplanationView extends StatelessWidget {
       itens: <Widget>[
         AprovacaoExplanationText(
           explanationText: manager.currentQUestion.explanation,
+          titleColor: Color(0xFF0075FF),
         ),
       ],
       button: AprovacaoFilledButton(

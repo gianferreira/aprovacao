@@ -1,3 +1,5 @@
+import 'package:aprovacao/core/widgets/explanation/explanation_entity.dart';
+import 'package:aprovacao/core/widgets/explanation/explanation_model.dart';
 import 'package:aprovacao/features/modules/list/domain/entities/module_entity.dart';
 
 class ModuleModel extends ModuleEntity {
@@ -5,8 +7,7 @@ class ModuleModel extends ModuleEntity {
     required String? id,
     required String? title,
     required String? certificationId,
-    required String? icon,
-    required String? presentation,
+    required List<ExplanationEntity>? explanation,
     required bool? availablePresentation,
     required bool? availableRevision,
     required String? userId,      
@@ -14,8 +15,7 @@ class ModuleModel extends ModuleEntity {
     id: id ?? '',
     title: title ?? '',
     certificationId: certificationId ?? '',
-    icon: icon ?? '',
-    presentation: presentation ?? '',
+    explanation: explanation ?? [],
     availablePresentation: availablePresentation ?? false,
     availableRevision: availableRevision ?? false,
     userId: userId ?? '',
@@ -29,11 +29,12 @@ class ModuleModel extends ModuleEntity {
       id: module['id'],
       title: module['title'],
       certificationId: module['certification_id'],
-      icon: '',
-      presentation: '',
       availablePresentation: userModule['availablePresentation'],
       availableRevision: userModule['availableRevision'],
       userId: userModule['user_id'],
+      explanation: ExplanationModel.fromList(
+        jsonList: module['explanation'],
+      ),
     );
   }
 

@@ -5,9 +5,11 @@ class AprovacaoExplanationTitle extends StatelessWidget {
   const AprovacaoExplanationTitle({
     super.key,
     required this.explanation,
+    required this.titleColor,
   });
 
   final ExplanationEntity explanation; 
+  final Color titleColor;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class AprovacaoExplanationTitle extends StatelessWidget {
           height: 1.2,
           fontSize: 18.0,
           fontWeight: FontWeight.w600,
-          color: Color(0xFF0075FF),
+          color: titleColor,
         ),
       ),
     );

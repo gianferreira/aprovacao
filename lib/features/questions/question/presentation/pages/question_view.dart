@@ -47,7 +47,7 @@ class _QuestionViewState extends State<QuestionView> {
   Widget build(BuildContext context) {
     return AprovacaoScaffoldView(
       appBar: AprovacaoAppBar(
-        title: widget.manager.currentQUestion.id,
+        title: widget.manager.currentQUestion.questionLabel,
         hasBackButton: widget.manager.isFirstQuestion == false,
         onBackButtonPressed: () {
           AprovacaoNavigator.pop(context: context);
