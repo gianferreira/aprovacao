@@ -54,16 +54,22 @@ class QuestionsFeedbackButton extends StatelessWidget {
           );
         }
 
-        return AprovacaoFilledButton(
-          text: 'Enviar dados',
-          isLoading: state is FeedbackLoading,
-          onPressed: () {
-            feedbackController.sendFeedback(
-              manager: manager.copyWith(
-                difficulty: difficultyController.value,
-              ),
+        return ValueListenableBuilder<int>(
+          valueListenable: difficultyController,
+          builder: (context, difficulty, child) {
+            return AprovacaoFilledButton(
+              text: 'Enviar dados',
+              isLoading: state is FeedbackLoading,
+              isDisable: difficulty == 0,
+              onPressed: () {
+                feedbackController.sendFeedback(
+                  manager: manager.copyWith(
+                    difficulty: difficultyController.value,
+                  ),
+                );
+              },
             );
-          },
+          }
         );
       }
     );

@@ -30,7 +30,7 @@ class _QuestionsFeedbackViewState extends State<QuestionsFeedbackView> {
   @override
   void initState() {
     feedbackController = feedback_dependencies.sl<FeedbackController>();
-    difficultyController = ValueNotifier(QuestionsFeedbackEnum.Easy.level);
+    difficultyController = ValueNotifier(0);
 
     super.initState();
   }
@@ -58,15 +58,19 @@ class _QuestionsFeedbackViewState extends State<QuestionsFeedbackView> {
         ),
         QuestionsFeedbackDifficulty(
           difficulty: QuestionsFeedbackEnum.Easy,
+          difficultyController: difficultyController,
         ),
         QuestionsFeedbackDifficulty(
           difficulty: QuestionsFeedbackEnum.Moderate,
+          difficultyController: difficultyController,
         ),
         QuestionsFeedbackDifficulty(
           difficulty: QuestionsFeedbackEnum.Complex,
+          difficultyController: difficultyController,
         ),
         QuestionsFeedbackDifficulty(
           difficulty: QuestionsFeedbackEnum.Hard,
+          difficultyController: difficultyController,
         ),
       ],
       button: QuestionsFeedbackButton(
