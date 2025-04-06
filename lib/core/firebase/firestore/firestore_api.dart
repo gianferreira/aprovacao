@@ -1,6 +1,7 @@
 import 'package:aprovacao/core/arch/failures/failures.dart';
 import 'package:aprovacao/features/certifications/list/domain/entities/certification_entity.dart';
 import 'package:aprovacao/features/modules/list/domain/entities/module_entity.dart';
+import 'package:aprovacao/features/questions/manager/domain/entities/group_entity.dart';
 import 'package:aprovacao/features/user/signup/data/models/user_model.dart';
 import 'package:aprovacao/features/user/signup/domain/entities/user_entity.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -112,6 +113,60 @@ class FirestoreAPI {
       ModulesSnapshots snapshots = (
         userModules: userModules, 
         modules: modules,
+      );
+
+      return snapshots;
+    } catch (err) {
+      throw ServerFailure(err.hashCode);
+    }
+  }
+
+  Future<QuestionsGroupsSnapshots> getQuestions({
+    required String userId,
+    required String moduleId,
+  }) async {
+    try {
+      final groupsSnaps = await db
+        .collection('groups')
+        .where('module_id', isEqualTo: moduleId)
+        .get();
+
+      final groupsIds = groupsSnaps.docs.map(
+        (document) => document['id'].toString(),
+      ).toList();
+
+      final userGroupsSnaps = await db
+        .collection('users_groups')
+        .where('user_id', isEqualTo: userId)
+        .where('group_id', whereIn: groupsIds)
+        .get();
+
+      final userGroups = userGroupsSnaps.docs.map(
+        (document) => document.data()
+      ).toList();
+
+      userGroups.sort(
+        (a, b) => (
+          a['nextRevisionDate'] as Timestamp
+        ).compareTo(
+          b['nextRevisionDate'] as Timestamp,
+        ),
+      );
+
+      final groupId = userGroups.first['group_id'].toString();
+
+      final questionSnaps = await db
+        .collection('questions')
+        .where('group_id', isEqualTo: groupId)
+        .get();
+
+      final questions = questionSnaps.docs.map(
+        (document) => document.data()
+      ).toList();
+
+      QuestionsGroupsSnapshots snapshots = (
+        questions: questions, 
+        group: userGroups.first,
       );
 
       return snapshots;

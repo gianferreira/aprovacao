@@ -63,7 +63,6 @@ class ModulesListView extends StatelessWidget {
                   return ModuleItem(
                     itemModule: modules[index],
                     currentModule: currentModule,
-                    certification: certification,
                     user: user,
                   );
                 },
@@ -88,9 +87,7 @@ class ModulesListView extends StatelessWidget {
                 context: context,
                 route: QuestionsManagerPage(
                   module: currentModule,
-                  certification: certification,
                   user: user,
-                  revision: false,
                 ),
                 routeName: Routes.questionsManager,
               );

@@ -1,6 +1,5 @@
 import 'package:aprovacao/core/navigation/navigators/navigator.dart';
 import 'package:aprovacao/core/navigation/routes/routes.dart';
-import 'package:aprovacao/features/certifications/list/domain/entities/certification_entity.dart';
 import 'package:aprovacao/features/modules/list/domain/entities/module_entity.dart';
 import 'package:aprovacao/features/modules/list/presentation/widgets/module_revision_button.dart';
 import 'package:aprovacao/features/questions/manager/presentation/pages/questions_manager_page.dart';
@@ -12,13 +11,11 @@ class ModuleItem extends StatelessWidget {
     Key? key,
     required this.itemModule,
     required this.currentModule,
-    required this.certification,
     required this.user,
   }) : super(key: key);
 
   final ModuleEntity itemModule;
   final ModuleEntity currentModule;
-  final CertificationEntity certification;
   final UserEntity user;
 
   @override
@@ -74,9 +71,7 @@ class ModuleItem extends StatelessWidget {
                   context: context,
                   route: QuestionsManagerPage(
                     module: itemModule, 
-                    certification: certification, 
                     user: user, 
-                    revision: true,
                   ),
                   routeName: Routes.questionsManager,
                 );
