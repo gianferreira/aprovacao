@@ -52,40 +52,42 @@ class _UserSignUpViewState extends State<UserSignUpView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF0B1C40),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16.0,
-          vertical: 36.0,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            const UserSignUpLogo(),
-            UserSignUpForm(
-              formKey: formKey,
-              nameTextController: nameTextController,
-              userTextController: userTextController,
-              passwordTextController: passwordTextController,
-            ),
-            const SizedBox(height: 32.0),
-            UserSignUpHandler(
-              formKey: formKey,
-              signUpController: signUpController,              
-              nameTextController: nameTextController,
-              userTextController: userTextController,
-              passwordTextController: passwordTextController,
-            ),
-            const SizedBox(height: 16.0),
-            AprovacaoTonalButton(
-              text: 'Cancelar',
-              padding: EdgeInsets.only(
-                bottom: 16.0,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 16.0,
+            vertical: 36.0,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              const UserSignUpLogo(),
+              UserSignUpForm(
+                formKey: formKey,
+                nameTextController: nameTextController,
+                userTextController: userTextController,
+                passwordTextController: passwordTextController,
               ),
-              onPressed: () {
-                AprovacaoNavigator.pop(context: context);
-              }, 
-            ),
-          ],
+              const SizedBox(height: 32.0),
+              UserSignUpHandler(
+                formKey: formKey,
+                signUpController: signUpController,              
+                nameTextController: nameTextController,
+                userTextController: userTextController,
+                passwordTextController: passwordTextController,
+              ),
+              const SizedBox(height: 16.0),
+              AprovacaoTonalButton(
+                text: 'Cancelar',
+                padding: EdgeInsets.only(
+                  bottom: 16.0,
+                ),
+                onPressed: () {
+                  AprovacaoNavigator.pop(context: context);
+                }, 
+              ),
+            ],
+          ),
         ),
       ),
     );

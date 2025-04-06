@@ -7,17 +7,35 @@ class UserSignUpLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.only(
-          bottom: 32.0,
+    return Stack(
+      alignment: Alignment.center,
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.only(
+            bottom: 20.0,
+          ),
+          child: Image.asset(
+            'assets/icon-aprovacao.png',
+            width: 250.0,
+            height: 250.0,
+          ),
         ),
-        child: Image.asset(
-          'assets/logo-aprovacao.jpg',
-          width: 150.0,
-          height: 150.0,
+        Padding(
+          padding: const EdgeInsets.only(
+            top: 140.0,
+          ),
+          child: Text(
+            'A  P  R  O  V  A  Ç  Ã  O',
+            style: TextStyle(
+              fontFamily: 'MyriadProRegular',
+              height: 1.2,
+              fontSize: 18.0,
+              fontWeight: FontWeight.w600,
+              color: Color(0xFFF5F5F5),
+            ),
+          ),
         ),
-      ),
+      ],
     );
   }
 }
