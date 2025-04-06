@@ -42,8 +42,8 @@ class CertificationButton extends StatelessWidget {
             ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(4.0),
-                bottomRight: Radius.circular(4.0),
+                bottomLeft: Radius.circular(8.0),
+                bottomRight: Radius.circular(8.0),
               ),
             ),
             elevation: 0,

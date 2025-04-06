@@ -1,3 +1,5 @@
+import 'package:aprovacao/core/widgets/explanation/explanation_entity.dart';
+
 class QuestionEntity {
   final String id;
   final String groupId;
@@ -7,7 +9,7 @@ class QuestionEntity {
   final String secondOption; 
   final String thirdOption;
   final String fourthOption;
-  final String explanation;
+  final List<ExplanationEntity> explanation;
 
   const QuestionEntity({
     required this.id,

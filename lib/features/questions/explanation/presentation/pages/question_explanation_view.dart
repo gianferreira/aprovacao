@@ -1,6 +1,7 @@
 import 'package:aprovacao/core/navigation/navigators/navigator.dart';
 import 'package:aprovacao/core/navigation/routes/routes.dart';
 import 'package:aprovacao/core/widgets/button/aprovacao_filled_button.dart';
+import 'package:aprovacao/core/widgets/explanation/aprovacao_explanation_text.dart';
 import 'package:aprovacao/core/widgets/structure/aprovacao_app_bar.dart';
 import 'package:aprovacao/core/widgets/structure/aprovacao_scrollable_view.dart';
 import 'package:aprovacao/features/questions/feedback/presentation/pages/questions_feedback_page.dart';
@@ -26,7 +27,11 @@ class QuestionExplanationView extends StatelessWidget {
           AprovacaoNavigator.pop(context: context);
         },
       ),
-      itens: <Widget>[],
+      itens: <Widget>[
+        AprovacaoExplanationText(
+          explanationText: manager.currentQUestion.explanation,
+        ),
+      ],
       button: AprovacaoFilledButton(
         text: manager.isLastQuestion 
           ? 'Concluir'

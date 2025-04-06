@@ -43,8 +43,8 @@ class CertificationItem extends StatelessWidget {
                   children: <Widget>[
                     ClipRRect(
                       borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(12.0),
-                        topRight:  Radius.circular(12.0),
+                        topLeft: Radius.circular(8.0),
+                        topRight:  Radius.circular(8.0),
                       ),
                       child: Image.asset(
                         'assets/cea.png',

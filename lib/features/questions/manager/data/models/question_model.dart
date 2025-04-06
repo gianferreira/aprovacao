@@ -1,3 +1,5 @@
+import 'package:aprovacao/core/widgets/explanation/explanation_entity.dart';
+import 'package:aprovacao/core/widgets/explanation/explanation_model.dart';
 import 'package:aprovacao/features/questions/manager/domain/entities/question_entity.dart';
 
 class QuestionModel extends QuestionEntity {
@@ -10,7 +12,7 @@ class QuestionModel extends QuestionEntity {
     required String? secondOption,
     required String? thirdOption,
     required String? fourthOption,
-    required String? explanation,
+    required List<ExplanationEntity>? explanation,
   }) : super(
     id: id ?? '',
     groupId: groupId ?? '',
@@ -20,7 +22,7 @@ class QuestionModel extends QuestionEntity {
     secondOption: secondOption ?? '',
     thirdOption: thirdOption ?? '',
     fourthOption: fourthOption ?? '',
-    explanation: explanation ?? ''
+    explanation: explanation ?? [],
   );
 
   factory QuestionModel.fromJson({
@@ -35,7 +37,9 @@ class QuestionModel extends QuestionEntity {
       secondOption: question['secondOption'],
       thirdOption: question['thirdOption'],
       fourthOption: question['fourthOption'],
-      explanation: question['explanation'],
+      explanation: ExplanationModel.fromList(
+        jsonList: question['explanation'],
+      ),
     );
   }
 
