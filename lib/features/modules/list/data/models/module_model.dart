@@ -5,6 +5,7 @@ import 'package:aprovacao/features/modules/list/domain/entities/module_entity.da
 class ModuleModel extends ModuleEntity {
   ModuleModel({
     required String? id,
+    required String? userModuleId,
     required String? title,
     required String? certificationId,
     required List<ExplanationEntity>? explanation,
@@ -13,6 +14,7 @@ class ModuleModel extends ModuleEntity {
     required String? userId,      
   }) : super(
     id: id ?? '',
+    userModuleId: userModuleId ?? '',
     title: title ?? '',
     certificationId: certificationId ?? '',
     explanation: explanation ?? [],
@@ -27,6 +29,7 @@ class ModuleModel extends ModuleEntity {
   }) {
     return ModuleModel(
       id: module['id'],
+      userModuleId: userModule['id'],
       title: module['title'],
       certificationId: module['certification_id'],
       availablePresentation: userModule['availablePresentation'],
@@ -54,5 +57,21 @@ class ModuleModel extends ModuleEntity {
     }
 
     return modules;
+  }
+
+  static Map<String, dynamic> toJson({
+    required String userModuleId,
+    required String moduleId,
+    required String userId,
+    required bool availablePresentation,
+    required bool availableRevision,
+  }) {
+    return {
+      'id': userModuleId,
+      'module_id': moduleId,
+      'user_id': userId,
+      'availableRevision': availableRevision, 
+      'availablePresentation': availablePresentation,
+    };
   }
 }

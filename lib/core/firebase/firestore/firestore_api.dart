@@ -1,6 +1,8 @@
 import 'package:aprovacao/core/arch/failures/failures.dart';
 import 'package:aprovacao/features/certifications/list/domain/entities/certification_entity.dart';
+import 'package:aprovacao/features/modules/list/data/models/module_model.dart';
 import 'package:aprovacao/features/modules/list/domain/entities/module_entity.dart';
+import 'package:aprovacao/features/questions/manager/data/models/group_model.dart';
 import 'package:aprovacao/features/questions/manager/domain/entities/group_entity.dart';
 import 'package:aprovacao/features/questions/manager/domain/entities/manager_entity.dart';
 import 'package:aprovacao/features/user/signup/data/models/user_model.dart';
@@ -180,6 +182,45 @@ class FirestoreAPI {
     required QuestionsManagerEntity manager,
   }) async {
     try {
+      final updatedUserGroupJson = GroupModel.toJson(
+        entity: manager.group, 
+        userId: manager.user.id,
+      );
+
+      await db.collection('users_groups').doc(
+        manager.group.userGroupId,
+      ).set(updatedUserGroupJson);
+
+      final groupsSnaps = await db
+        .collection('groups')
+        .where('module_id', isEqualTo: manager.module.id)
+        .get();
+
+      final groupsIds = groupsSnaps.docs.map(
+        (document) => document['id'].toString(),
+      ).toList();
+
+      final userGroupsSnaps = await db
+        .collection('users_groups')
+        .where('user_id', isEqualTo: manager.user.id)
+        .where('group_id', whereIn: groupsIds)
+        .where('timesAnswered', isEqualTo: 0)
+        .get();
+
+      final availableRevision = userGroupsSnaps.docs.isEmpty;
+
+      final updatedUserModuleJson = ModuleModel.toJson(
+        userId: manager.user.id,
+        moduleId: manager.module.id,
+        userModuleId: manager.module.userModuleId,
+        availablePresentation: false,
+        availableRevision: availableRevision,
+      );
+
+      await db.collection('users_modules').doc(
+        manager.module.userModuleId,
+      ).set(updatedUserModuleJson);
+
       return true;
     } catch (err) {
       throw ServerFailure(err.hashCode);

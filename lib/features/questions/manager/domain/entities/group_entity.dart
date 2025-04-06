@@ -8,7 +8,7 @@ class GroupEntity {
   final int timesAnswered;
   final int totalAnswers; 
   final int correctAnswers;
-  final double answerRating;
+  final int answerRating;
   final List<QuestionEntity> questions;
 
   const GroupEntity({
@@ -22,6 +22,30 @@ class GroupEntity {
     required this.answerRating,
     required this.questions,
   });
+
+  GroupEntity copyWith({
+    String? id,
+    String? userGroupId,
+    DateTime? nextRevisionDate,          
+    int? revisionTime,
+    int? timesAnswered,
+    int? totalAnswers,
+    int? correctAnswers,
+    int? answerRating,
+    List<QuestionEntity>? questions,
+  }) {
+    return GroupEntity(
+      id: id ?? this.id,
+      userGroupId: userGroupId ?? this.userGroupId,
+      nextRevisionDate: nextRevisionDate ?? this.nextRevisionDate,
+      revisionTime: revisionTime ?? this.revisionTime,
+      timesAnswered: timesAnswered ?? this.timesAnswered,
+      totalAnswers: totalAnswers ?? this.totalAnswers,
+      correctAnswers: correctAnswers ?? this.correctAnswers,
+      answerRating: answerRating ?? this.answerRating,
+      questions: questions ?? this.questions,
+    );
+  }
 }
 
 typedef QuestionsGroupsSnapshots =  ({

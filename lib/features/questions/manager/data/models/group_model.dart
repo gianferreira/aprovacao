@@ -12,7 +12,7 @@ class GroupModel extends GroupEntity {
     required int? timesAnswered,
     required int? totalAnswers,
     required int? correctAnswers,
-    required double? answerRating,
+    required int? answerRating,
     required List<QuestionEntity>? questions, 
   }) : super(
     id: id ?? '',
@@ -22,7 +22,7 @@ class GroupModel extends GroupEntity {
     timesAnswered: timesAnswered ?? 0,
     totalAnswers: totalAnswers ?? 0,
     correctAnswers: correctAnswers ?? 0,
-    answerRating: answerRating ?? 0.0,
+    answerRating: answerRating ?? 0,
     questions: questions ?? [],
   );
 
@@ -42,7 +42,7 @@ class GroupModel extends GroupEntity {
       timesAnswered: group['timesAnswered'],
       totalAnswers: group['totalAnswers'],
       correctAnswers: group['correctAnswers'],
-      answerRating: double.parse(group['answerRating'].toString()),
+      answerRating: group['answerRating'],
       questions: QuestionModel.fromList(jsonList: questions),
     );
   }
@@ -56,5 +56,26 @@ class GroupModel extends GroupEntity {
     );
 
     return group;
+  }
+
+  static Map<String, dynamic> toJson({
+    required GroupEntity entity,
+    required String userId,
+  }) {
+    Timestamp nextRevisionDate = Timestamp.fromDate(
+      entity.nextRevisionDate,
+    );
+
+    return {
+      'id': entity.userGroupId,
+      'group_id': entity.id,
+      'answerRating': entity.answerRating,
+      'correctAnswers': entity.correctAnswers,
+      'totalAnswers': entity.totalAnswers,
+      'timesAnswered': entity.timesAnswered,
+      'revisionTime': entity.revisionTime,
+      'nextRevisionDate': nextRevisionDate, 
+      'user_id': userId,
+    };
   }
 }
