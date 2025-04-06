@@ -1,20 +1,47 @@
 import 'package:aprovacao/core/navigation/navigators/navigator.dart';
-import 'package:aprovacao/core/widgets/button/aprovacao_filled_button.dart';
 import 'package:aprovacao/core/widgets/structure/aprovacao_app_bar.dart';
 import 'package:aprovacao/core/widgets/structure/aprovacao_scrollable_view.dart';
 import 'package:aprovacao/features/questions/feedback/domain/usecases/questions_feedback_difficulty_enum.dart';
+import 'package:aprovacao/features/questions/feedback/presentation/stores/feedback_controller.dart';
+import 'package:aprovacao/features/questions/feedback/presentation/widgets/questions_feedback_button.dart';
 import 'package:aprovacao/features/questions/feedback/presentation/widgets/questions_feedback_difficulty.dart';
 import 'package:aprovacao/features/questions/feedback/presentation/widgets/questions_feedback_header.dart';
 import 'package:aprovacao/features/questions/manager/domain/entities/manager_entity.dart';
 import 'package:flutter/material.dart';
 
-class QuestionsFeedbackView extends StatelessWidget {
+import 'package:aprovacao/features/questions/feedback/feedback_injection_container.dart' as feedback_dependencies;
+
+class QuestionsFeedbackView extends StatefulWidget {
   const QuestionsFeedbackView({
     super.key,
     required this.manager,
   });
 
   final QuestionsManagerEntity manager;
+
+  @override
+  State<QuestionsFeedbackView> createState() => _QuestionsFeedbackViewState();
+}
+
+class _QuestionsFeedbackViewState extends State<QuestionsFeedbackView> {
+  late FeedbackController feedbackController;
+  late ValueNotifier<int> difficultyController;
+
+  @override
+  void initState() {
+    feedbackController = feedback_dependencies.sl<FeedbackController>();
+    difficultyController = ValueNotifier(QuestionsFeedbackEnum.Easy.level);
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    feedbackController.dispose();
+    difficultyController.dispose();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,38 +53,26 @@ class QuestionsFeedbackView extends StatelessWidget {
         },
       ),
       itens: <Widget>[
-        QuestionsFeedbackHeader(),
-        Padding(
-          padding: const EdgeInsets.only(
-            top: 16.0,
-          ),
-          child: Text(
-            'Classifique a dificuldade das questões anteriores:',
-            style: TextStyle(
-              fontFamily: 'MyriadProRegular',
-              height: 1.2,
-              fontSize: 16.0,
-              fontWeight: FontWeight.w600,
-              color: Color(0xFF101010),
-            ),
-          ),
+        QuestionsFeedbackHeader(
+          manager: widget.manager,
         ),
         QuestionsFeedbackDifficulty(
-          difficulty: QuestionsFeedbackDifficultyEnum.Easy,
+          difficulty: QuestionsFeedbackEnum.Easy,
         ),
         QuestionsFeedbackDifficulty(
-          difficulty: QuestionsFeedbackDifficultyEnum.Moderate,
+          difficulty: QuestionsFeedbackEnum.Moderate,
         ),
         QuestionsFeedbackDifficulty(
-          difficulty: QuestionsFeedbackDifficultyEnum.Complex,
+          difficulty: QuestionsFeedbackEnum.Complex,
         ),
         QuestionsFeedbackDifficulty(
-          difficulty: QuestionsFeedbackDifficultyEnum.Hard,
+          difficulty: QuestionsFeedbackEnum.Hard,
         ),
       ],
-      button: AprovacaoFilledButton(
-        text: 'Enviar dados',
-        onPressed: () {},
+      button: QuestionsFeedbackButton(
+        manager: widget.manager,
+        feedbackController: feedbackController,
+        difficultyController: difficultyController,
       ),
     );
   }

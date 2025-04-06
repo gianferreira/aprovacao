@@ -4,6 +4,7 @@ import 'package:aprovacao/features/user/signout/signout_injection_container.dart
 import 'package:aprovacao/features/certifications/list/certifications_injection_container.dart' as certification_dependencies;
 import 'package:aprovacao/features/modules/list/modules_injection_container.dart' as module_dependencies;
 import 'package:aprovacao/features/questions/manager/questions_injection_container.dart' as questions_dependencies;
+import 'package:aprovacao/features/questions/feedback/feedback_injection_container.dart' as feedback_dependencies;
 
 class DependencyInjector {
   static void initDependencies() {
@@ -13,5 +14,6 @@ class DependencyInjector {
     certification_dependencies.init();
     module_dependencies.init();
     questions_dependencies.init();
+    feedback_dependencies.init();
   }
 }

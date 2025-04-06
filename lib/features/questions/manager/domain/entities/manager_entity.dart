@@ -1,3 +1,4 @@
+import 'package:aprovacao/features/certifications/list/domain/entities/certification_entity.dart';
 import 'package:aprovacao/features/modules/list/domain/entities/module_entity.dart';
 import 'package:aprovacao/features/questions/manager/domain/entities/group_entity.dart';
 import 'package:aprovacao/features/questions/manager/domain/entities/question_entity.dart';
@@ -6,6 +7,7 @@ import 'package:aprovacao/features/user/signup/domain/entities/user_entity.dart'
 class QuestionsManagerEntity {
   final GroupEntity group;
   final ModuleEntity module;
+  final CertificationEntity certification;
   final UserEntity user;
   final QuestionEntity currentQUestion;
   final int corrects;
@@ -15,6 +17,7 @@ class QuestionsManagerEntity {
     required this.group,
     required this.module,
     required this.user,
+    required this.certification,
     required this.difficulty,
     required this.currentQUestion,
     required this.corrects,
@@ -23,6 +26,7 @@ class QuestionsManagerEntity {
   QuestionsManagerEntity copyWith({
     GroupEntity? group,
     ModuleEntity? module,
+    CertificationEntity? certification,
     UserEntity? user,
     QuestionEntity? currentQUestion,
     int? difficulty,
@@ -31,6 +35,7 @@ class QuestionsManagerEntity {
     return QuestionsManagerEntity(
       group: group ?? this.group,
       module: module ?? this.module,
+      certification: certification ?? this.certification,
       user: user ?? this.user,
       currentQUestion: currentQUestion ?? this.currentQUestion,
       difficulty: difficulty ?? this.difficulty,
@@ -55,4 +60,6 @@ extension QuestionsManagerExtension on QuestionsManagerEntity {
   bool get isFirstQuestion => currentQUestion == questions.first;
 
   bool get isLastQuestion => currentQUestion == questions.last;
+
+  int get percentageRating => ((corrects / questions.length) * 100).toInt();
 }

@@ -1,3 +1,4 @@
+import 'package:aprovacao/features/certifications/list/domain/entities/certification_entity.dart';
 import 'package:aprovacao/features/modules/list/domain/entities/module_entity.dart';
 import 'package:aprovacao/features/questions/manager/domain/usecases/load_questions_use_case.dart';
 import 'package:aprovacao/features/questions/manager/presentation/stores/questions_state.dart';
@@ -14,12 +15,14 @@ class QuestionsController extends ValueNotifier<QuestionsState> {
   void loadQuestions({
     required UserEntity user,
     required ModuleEntity module,
+    required CertificationEntity certification,
   }) async {
     value = QuestionsLoading();
 
     final loadQuestionsResult = await usecase(LoadQuestionsParams(
       user: user,
       module: module,
+      certification: certification,
     ));
 
     loadQuestionsResult.fold(

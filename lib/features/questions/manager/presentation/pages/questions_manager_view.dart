@@ -1,6 +1,7 @@
 import 'package:aprovacao/core/navigation/navigators/navigator_builder.dart';
 import 'package:aprovacao/core/widgets/snackbar/aprovacao_snackbar_error.dart';
 import 'package:aprovacao/core/widgets/structure/aprovacao_loading_view.dart';
+import 'package:aprovacao/features/certifications/list/domain/entities/certification_entity.dart';
 import 'package:aprovacao/features/modules/explanation/presentation/pages/module_explanation_page.dart';
 import 'package:aprovacao/features/modules/list/domain/entities/module_entity.dart';
 import 'package:aprovacao/features/questions/manager/presentation/stores/question_controller.dart';
@@ -14,12 +15,14 @@ import 'package:aprovacao/features/questions/manager/questions_injection_contain
 class QuestionsManagerView extends StatefulWidget {
   const QuestionsManagerView({
     super.key,
-    required this.module,
     required this.user,
+    required this.module,
+    required this.certification,
   });
 
-  final ModuleEntity module;
   final UserEntity user;
+  final ModuleEntity module;
+  final CertificationEntity certification;
 
   @override
   State<QuestionsManagerView> createState() => _QuestionsManagerViewState();
@@ -34,6 +37,7 @@ class _QuestionsManagerViewState extends State<QuestionsManagerView> {
     questionsController.loadQuestions(
       user: widget.user,
       module: widget.module,
+      certification: widget.certification,
     );
 
     super.initState();

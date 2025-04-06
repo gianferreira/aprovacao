@@ -1,74 +1,44 @@
 import 'package:flutter/material.dart';
 
-enum QuestionsFeedbackDifficultyEnum {
-  Easy,
-  Moderate,
-  Complex,
-  Hard,
-}
+enum QuestionsFeedbackEnum {
+  Easy(
+    level: 1,
+    title: 'Fácil',
+    color: Color(0xFF66BDEE),
+    description: '''Questões de extrema facilidade, em nenhum momento '''
+    '''ficou alguma dúvida.''',
+  ),
+  Moderate(
+    level: 2,
+    title: 'Razoável',
+    color: Color(0xFFECC359),
+    description: '''Questões de dificuldade baixa, mas que foi necessário'''
+    ''' analisar com calma.''',
+  ),
+  Complex(
+    level: 3,
+    title: 'Desafiador',
+    color: Color(0xFFEC9759),
+    description: '''A questões foram relativamente complicadas, faltou'''
+    ''' familiriade com os conteúdos.''',
+  ),
+  Hard(
+    level: 4,
+    title: 'Difícil',
+    color: Color(0xFFEC5959),
+    description: '''Questões muito difíceis, será necessário mais estudo '''
+    '''para respondê-las.''',
+  );
 
-extension QuestionsFeedbackDifficultyEnumExtension on QuestionsFeedbackDifficultyEnum {
-  int get level {
-    switch (this) {
-      case QuestionsFeedbackDifficultyEnum.Easy:
-        return 1;
-      case QuestionsFeedbackDifficultyEnum.Moderate:
-        return 2;
-      case QuestionsFeedbackDifficultyEnum.Complex:
-        return 3;
-      case QuestionsFeedbackDifficultyEnum.Hard:
-        return 4;
-      default:
-        return 0;
-    }
-  }
+  const QuestionsFeedbackEnum({
+    required this.level,
+    required this.title,
+    required this.color,
+    required this.description,
+  });
 
-  String get title {
-    switch (this) {
-      case QuestionsFeedbackDifficultyEnum.Easy:
-        return 'Fácil';
-      case QuestionsFeedbackDifficultyEnum.Moderate:
-        return 'Razoável';
-      case QuestionsFeedbackDifficultyEnum.Complex:
-        return 'Desafiador';
-      case QuestionsFeedbackDifficultyEnum.Hard:
-        return 'Difícil';
-      default:
-        return '';
-    }
-  }
-
-  String get description {
-    switch (this) {
-      case QuestionsFeedbackDifficultyEnum.Easy:
-        return '''Questões de extrema facilidade, em nenhum momento '''
-        '''ficou alguma dúvida.''';
-      case QuestionsFeedbackDifficultyEnum.Moderate:
-        return '''Questões de dificuldade baixa, mas que foi necessário'''
-          ''' analisar com calma.''';
-      case QuestionsFeedbackDifficultyEnum.Complex:
-        return '''A questões foram relativamente complicadas, faltou'''
-          ''' familiriade com os conteúdos.''';
-      case QuestionsFeedbackDifficultyEnum.Hard:
-        return '''QuestÕes muito difíceis, será necessário mais estudo '''
-          '''para responder as mesmas.''';
-      default:
-        return '';
-    }
-  }
-
-  Color get color {
-    switch (this) {
-      case QuestionsFeedbackDifficultyEnum.Easy:
-        return Color(0xFF66BDEE);
-      case QuestionsFeedbackDifficultyEnum.Moderate:
-        return Color(0xFFECC359);
-      case QuestionsFeedbackDifficultyEnum.Complex:
-        return Color(0xFFEC9759);
-      case QuestionsFeedbackDifficultyEnum.Hard:
-        return Color(0xFFEC5959);
-      default:
-        return Color(0xFF66BDEE);
-    }
-  }
+  final int level;
+  final String title;
+  final Color color;
+  final String description;
 }

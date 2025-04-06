@@ -2,6 +2,7 @@ import 'package:aprovacao/core/arch/failures/failures.dart';
 import 'package:aprovacao/features/certifications/list/domain/entities/certification_entity.dart';
 import 'package:aprovacao/features/modules/list/domain/entities/module_entity.dart';
 import 'package:aprovacao/features/questions/manager/domain/entities/group_entity.dart';
+import 'package:aprovacao/features/questions/manager/domain/entities/manager_entity.dart';
 import 'package:aprovacao/features/user/signup/data/models/user_model.dart';
 import 'package:aprovacao/features/user/signup/domain/entities/user_entity.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -170,6 +171,16 @@ class FirestoreAPI {
       );
 
       return snapshots;
+    } catch (err) {
+      throw ServerFailure(err.hashCode);
+    }
+  }
+
+  Future<bool> sendQuestionsInfo({
+    required QuestionsManagerEntity manager,
+  }) async {
+    try {
+      return true;
     } catch (err) {
       throw ServerFailure(err.hashCode);
     }

@@ -8,7 +8,7 @@ class QuestionsFeedbackDifficulty extends StatelessWidget {
     required this.difficulty,
   }) : super(key: key);
 
-  final QuestionsFeedbackDifficultyEnum difficulty;
+  final QuestionsFeedbackEnum difficulty;
 
   @override
   Widget build(BuildContext context) {
