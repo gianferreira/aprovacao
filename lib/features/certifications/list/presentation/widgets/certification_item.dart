@@ -5,6 +5,8 @@ import 'package:aprovacao/features/certifications/list/presentation/widgets/cert
 import 'package:aprovacao/features/modules/list/presentation/pages/modules_list_page.dart';
 import 'package:aprovacao/features/user/signup/domain/entities/user_entity.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
 
 class CertificationItem extends StatelessWidget {
   const CertificationItem({
@@ -49,6 +51,32 @@ class CertificationItem extends StatelessWidget {
                       child: Image.asset(
                         'assets/cea.png',
                         fit: BoxFit.fitWidth,
+                      ),
+                    ),
+                    Visibility(
+                      visible: certification.available == false,
+                      child: Container(
+                        height: 202,
+                        width: 360,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFF0F0F0).withOpacity(0.8),
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(8.0),
+                            topRight:  Radius.circular(8.0),
+                          ),
+                        ),
+                        alignment: Alignment.topLeft,
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            top: 24.0,
+                            left: 24.0,
+                          ),
+                          child: Icon(
+                            Icons.lock,
+                            size: 48.0,
+                            color: Color(0xFFF0F0F0),
+                          ),
+                        ),
                       ),
                     ),
                     Padding(
@@ -96,6 +124,7 @@ class CertificationItem extends StatelessWidget {
         ),
         CertificationButton(
           text: 'Acessar Módulos',
+          isDisable: certification.available == false,
           onPressed: () {
             AprovacaoNavigator.push(
               context: context, 

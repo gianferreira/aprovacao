@@ -64,7 +64,9 @@ class CertificationButton extends StatelessWidget {
                 children: <Widget>[
                   Icon(
                     Icons.account_balance_wallet_outlined,
-                    color: Color(0xFFFFFFFF),
+                    color: isDisable
+                      ? Color(0xFFB3B3B3)
+                      : Color(0xFFFFFFFF),
                     size: 18.0,
                   ),
                   const SizedBox(width: 12.0),
