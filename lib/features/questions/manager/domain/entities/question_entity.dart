@@ -24,4 +24,11 @@ class QuestionEntity {
 
 extension QuestionExtension on QuestionEntity {
   int get sequenceId => int.parse(id);
+
+  List<String> get options => [
+    firstOption,
+    secondOption,
+    thirdOption,
+    fourthOption,
+  ];
 }

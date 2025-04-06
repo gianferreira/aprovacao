@@ -1,4 +1,5 @@
 import 'package:aprovacao/features/questions/manager/domain/entities/manager_entity.dart';
+import 'package:aprovacao/features/questions/question/presentation/pages/question_view.dart';
 import 'package:flutter/material.dart';
 
 class QuestionPage extends StatelessWidget {
@@ -11,6 +12,6 @@ class QuestionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return QuestionPage(manager: manager);
+    return QuestionView(manager: manager);
   }
 }

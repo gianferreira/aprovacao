@@ -1,4 +1,10 @@
+import 'package:aprovacao/core/navigation/navigators/navigator.dart';
+import 'package:aprovacao/core/navigation/routes/routes.dart';
+import 'package:aprovacao/core/widgets/button/aprovacao_filled_button.dart';
+import 'package:aprovacao/core/widgets/structure/aprovacao_app_bar.dart';
+import 'package:aprovacao/core/widgets/structure/aprovacao_scrollable_view.dart';
 import 'package:aprovacao/features/questions/manager/domain/entities/manager_entity.dart';
+import 'package:aprovacao/features/questions/question/presentation/pages/question_page.dart';
 import 'package:flutter/material.dart';
 
 class ModuleExplanationView extends StatelessWidget {
@@ -11,6 +17,24 @@ class ModuleExplanationView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return AprovacaoScrollableView(
+      appBar: AprovacaoAppBar(
+        title: 'Apresentação',
+        onBackButtonPressed: () {
+          AprovacaoNavigator.pop(context: context);
+        },
+      ),
+      itens: <Widget>[],
+      button: AprovacaoFilledButton(
+        text: 'Ir para as questões',
+        onPressed: () {
+          AprovacaoNavigator.pushReplacement(
+            context: context, 
+            route: QuestionPage(manager: manager), 
+            routeName: Routes.questionPage,
+          );
+        }
+      ),
+    );
   }
 }

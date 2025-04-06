@@ -37,6 +37,7 @@ class LoadQuestionsUsecase implements UseCase<QuestionsManagerEntity, LoadQuesti
           module: params.module, 
           user: params.user, 
           difficulty: 1, 
+          corrects: 0,
           currentQUestion: success.questions.first,
         );
 

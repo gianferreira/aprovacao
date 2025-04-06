@@ -6,10 +6,7 @@ import 'package:flutter/material.dart';
 class AprovacaoExitBottomSheet extends StatelessWidget {
   const AprovacaoExitBottomSheet({
     Key? key,
-    required this.availablePresentation,
   }) : super(key: key);
-
-  final bool availablePresentation;
 
   @override
   Widget build(BuildContext context) {
@@ -87,10 +84,6 @@ class AprovacaoExitBottomSheet extends StatelessWidget {
                       AprovacaoFilledButton(
                         text: 'Sair sem salvar',
                         onPressed: () {
-                          if(availablePresentation) {
-                            AprovacaoNavigator.pop(context: context);
-                          }
-
                           AprovacaoNavigator.pop(context: context);
                           AprovacaoNavigator.pop(context: context);
                         },

@@ -8,6 +8,7 @@ class QuestionsManagerEntity {
   final ModuleEntity module;
   final UserEntity user;
   final QuestionEntity currentQUestion;
+  final int corrects;
   final int difficulty;
 
   const QuestionsManagerEntity({
@@ -16,6 +17,7 @@ class QuestionsManagerEntity {
     required this.user,
     required this.difficulty,
     required this.currentQUestion,
+    required this.corrects,
   });
 
   QuestionsManagerEntity copyWith({
@@ -24,6 +26,7 @@ class QuestionsManagerEntity {
     UserEntity? user,
     QuestionEntity? currentQUestion,
     int? difficulty,
+    int? corrects,
   }) {
     return QuestionsManagerEntity(
       group: group ?? this.group,
@@ -31,6 +34,7 @@ class QuestionsManagerEntity {
       user: user ?? this.user,
       currentQUestion: currentQUestion ?? this.currentQUestion,
       difficulty: difficulty ?? this.difficulty,
+      corrects: corrects ?? this.corrects,
     );
   }
 }
