@@ -41,7 +41,7 @@ class ModulesListView extends StatelessWidget {
         child: Column(
           children: <Widget>[ 
             ModulesInstructions(
-              isFirstModule: currentModule == modules.first,
+              isFirstModule: currentModule == modules.first && !modules.first.availableRevision,
               isLastModule: currentModule == modules.last,
             ),
             Padding(

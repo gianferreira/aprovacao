@@ -29,7 +29,7 @@ typedef ModulesSnapshots =  ({
 
 extension ModulesExtension on List<ModuleEntity> {
   ModuleEntity get currentModule => firstWhere(
-    (element) => element.availableRevision,
+    (element) => element.availablePresentation,
     orElse: () => finishedModules ? last : first,
   );
 
