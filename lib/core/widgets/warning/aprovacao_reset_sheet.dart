@@ -7,11 +7,9 @@ class AprovacaoResetBottomSheet extends StatelessWidget {
   const AprovacaoResetBottomSheet({
     super.key,
     required this.onReset,
-    required this.isLoading,
   });
 
   final VoidCallback onReset;
-  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +74,6 @@ class AprovacaoResetBottomSheet extends StatelessWidget {
                       AprovacaoTonalButton(
                         text: 'Sim, resetar',
                         onPressed: onReset,
-                        isLoading: isLoading,
                         padding: EdgeInsets.zero,
                       ),
                       AprovacaoFilledButton(

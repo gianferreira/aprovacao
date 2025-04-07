@@ -3,12 +3,7 @@ import 'package:flutter/material.dart';
 class ModuleReportInstructions extends StatelessWidget {
   const ModuleReportInstructions({
     Key? key,
-    this.isFirstModule = false,
-    this.isLastModule = false,
   }) : super(key: key);
-
-  final bool isFirstModule;
-  final bool isLastModule;
 
   @override
   Widget build(BuildContext context) {

@@ -44,7 +44,7 @@ extension ModulesExtension on List<ModuleEntity> {
 
   ModuleEntity get lastAvaialableRevision => lastWhere(
     (element) => element.availableRevision,
-    orElse: () => last,
+    orElse: () => finishedModules ? last : first,
   );
 
   bool get finishedModules => every(

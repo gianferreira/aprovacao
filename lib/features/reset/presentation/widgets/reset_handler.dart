@@ -1,5 +1,6 @@
 import 'package:aprovacao/core/navigation/navigators/navigator_builder.dart';
 import 'package:aprovacao/core/widgets/snackbar/aprovacao_snackbar_error.dart';
+import 'package:aprovacao/core/widgets/snackbar/aprovacao_snackbar_success.dart';
 import 'package:aprovacao/core/widgets/warning/aprovacao_reset_sheet.dart';
 import 'package:aprovacao/features/certifications/list/domain/entities/certification_entity.dart';
 import 'package:aprovacao/features/reset/presentation/stores/reset_controller.dart';
@@ -49,7 +50,16 @@ class _ResetHandlerState extends State<ResetHandler> {
           AprovacaoNavigatorBuilder.pop(context: context);
           AprovacaoNavigatorBuilder.pop(context: context);
           AprovacaoNavigatorBuilder.pop(context: context);
+
+          AprovacaoSnackBarSuccess.show(
+            context: context,
+            title: 'Seu progresso foi resetado com sucesso!',
+          );
         } else if(state is ResetError) {
+          AprovacaoNavigatorBuilder.pop(context: context);
+          AprovacaoNavigatorBuilder.pop(context: context);
+          AprovacaoNavigatorBuilder.pop(context: context);
+
           AprovacaoSnackBarError.show(
             context: context,
             title: state.errorMessage,
@@ -58,7 +68,6 @@ class _ResetHandlerState extends State<ResetHandler> {
         }
 
         return AprovacaoResetBottomSheet(
-          isLoading: state is ResetLoading,
           onReset: () {
             resetController.resetProgress(
               user: widget.user,

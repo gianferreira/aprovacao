@@ -1,4 +1,5 @@
 import 'package:aprovacao/core/widgets/structure/aprovacao_app_bar.dart';
+import 'package:aprovacao/core/widgets/structure/aprovacao_empty_view.dart';
 import 'package:flutter/material.dart';
 
 class AprovacaoScaffoldView extends StatelessWidget {
@@ -6,14 +7,19 @@ class AprovacaoScaffoldView extends StatelessWidget {
     Key? key,
     required this.appBar,
     required this.body,
-    this.bottom,
+    required this.button,
+    this.noButton = false,
+    this.twoButtons = false,
   }) : super(key: key);
 
   final AprovacaoAppBar appBar;
   final Widget body;
-  final Widget? bottom;
+  final Widget button;
+  final bool twoButtons;
+  final bool noButton;
 
   final double bottomNavigationBarSize = 80.0;
+  final double secondButton = 64.0;
   final double dividerSize = 2.0;
 
   @override
@@ -25,23 +31,38 @@ class AprovacaoScaffoldView extends StatelessWidget {
         backgroundColor: Color(0xFFFFFFFF),
         appBar: appBar,
         body: body,
-        bottomNavigationBar: bottom != null 
-          ? SafeArea(
-              child: Container(
-                height: bottomNavigationBarSize + dividerSize,
-                child: Column(
-                  children: <Widget>[
-                    Divider(
-                      height: 2.0,
-                      thickness: 2.0,
-                      color: Color(0xFFEDEDED),
-                    ),
-                    bottom ?? Container(),
-                  ],
+        bottomNavigationBar: twoButtons
+          ? Container(
+              color: Color(0xFFFFFFFF),
+              child: SafeArea(
+                child: Container(
+                  color: Color(0xFFFFFFFF),
+                  height: bottomNavigationBarSize + secondButton,
+                  child: button,
                 ),
               ),
             )
-          : null,
+          : noButton
+              ? AprovacaoEmptyView()
+              : Container(
+                color: Color(0xFFFFFFFF),
+                child: SafeArea(
+                  child: Container(
+                    color: Color(0xFFFFFFFF),
+                    height: bottomNavigationBarSize + dividerSize,
+                    child: Column(
+                      children: <Widget>[
+                        Divider(
+                          height: dividerSize,
+                          thickness: dividerSize,
+                          color: Color(0xFFEDEDED),
+                        ),
+                        button,
+                      ],
+                    ),
+                  ),
+                ),
+              ),
       ),
     );
   }

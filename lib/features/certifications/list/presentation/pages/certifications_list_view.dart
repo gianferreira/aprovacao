@@ -1,4 +1,5 @@
 import 'package:aprovacao/core/widgets/structure/aprovacao_app_bar.dart';
+import 'package:aprovacao/core/widgets/structure/aprovacao_empty_view.dart';
 import 'package:aprovacao/core/widgets/structure/aprovacao_scaffold_view.dart';
 import 'package:aprovacao/features/certifications/list/domain/entities/certification_entity.dart';
 import 'package:aprovacao/features/certifications/list/presentation/widgets/certification_item.dart';
@@ -43,6 +44,8 @@ class CertificationsListView extends StatelessWidget {
           ],
         ),
       ),
+      noButton: true,
+      button: AprovacaoEmptyView(),
     );
   }
 }
