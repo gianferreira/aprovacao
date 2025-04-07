@@ -5,8 +5,6 @@ import 'package:aprovacao/features/certifications/list/presentation/widgets/cert
 import 'package:aprovacao/features/modules/list/presentation/pages/modules_list_page.dart';
 import 'package:aprovacao/features/user/signup/domain/entities/user_entity.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-
 
 class CertificationItem extends StatelessWidget {
   const CertificationItem({

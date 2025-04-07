@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ModuleRevisionButton extends StatelessWidget {
-  const ModuleRevisionButton({
+class ModuleReportButton extends StatelessWidget {
+  const ModuleReportButton({
     Key? key,
     required this.onPressed,
   }) : super(key: key);
@@ -12,7 +12,7 @@ class ModuleRevisionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 36.0,
-      width: 90.0,
+      width: 80.0,
       decoration: BoxDecoration(
         border: Border.all(
           color: Color(0xFF02CEFD),
@@ -31,7 +31,7 @@ class ModuleRevisionButton extends StatelessWidget {
           elevation: 0.0,
         ),
         child: Text(
-          'Revisar',
+          'Conferir',
           style: TextStyle(
             fontFamily: 'MyriadProRegular',
             height: 1.2,

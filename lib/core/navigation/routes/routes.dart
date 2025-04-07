@@ -8,4 +8,6 @@ class Routes {
   static const String questionPage = '/question-page';
   static const String questionExplanation = '/question-explanation';
   static const String questionsFeedback = '/questions-feedback';
+  static const String modulesReport = '/modules-report';
+  static const String groupsReport = '/groups-report';
 }
