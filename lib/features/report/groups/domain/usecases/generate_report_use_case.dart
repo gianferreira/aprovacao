@@ -43,7 +43,9 @@ class GenerateReportUsecase implements UseCase<ModuleReportEntity, GenerateRepor
           correctAnswers = correctAnswers + element.correctAnswers;
         });
 
-        answerRating = (correctAnswers / totalAnswers * 100).toInt();
+        answerRating = correctAnswers > 0 && totalAnswers > 0
+          ? (correctAnswers / totalAnswers * 100).toInt()
+          : 0;
 
         ModuleReportEntity report = ModuleReportEntity(
           timesAnswered: timesAnswered,

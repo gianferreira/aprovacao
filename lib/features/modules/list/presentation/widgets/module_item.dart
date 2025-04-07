@@ -65,7 +65,7 @@ class ModuleItem extends StatelessWidget {
           ),
         ),
         Visibility(
-          visible: currentModule.sequenceId > itemModule.sequenceId,
+          visible: itemModule.availableRevision,
           child: Padding(
             padding: const EdgeInsets.only(left: 16.0),
             child: ModuleRevisionButton(

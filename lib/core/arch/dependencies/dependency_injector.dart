@@ -5,6 +5,7 @@ import 'package:aprovacao/features/certifications/list/certifications_injection_
 import 'package:aprovacao/features/modules/list/modules_injection_container.dart' as module_dependencies;
 import 'package:aprovacao/features/questions/manager/questions_injection_container.dart' as questions_dependencies;
 import 'package:aprovacao/features/questions/feedback/feedback_injection_container.dart' as feedback_dependencies;
+import 'package:aprovacao/features/report/groups/report_injection_container.dart' as report_dependencies;
 
 class DependencyInjector {
   static void initDependencies() {
@@ -15,5 +16,6 @@ class DependencyInjector {
     module_dependencies.init();
     questions_dependencies.init();
     feedback_dependencies.init();
+    report_dependencies.init();
   }
 }

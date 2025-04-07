@@ -21,7 +21,9 @@ class SendFeedbackUsecase implements UseCase<int, SendFeedbackParams> {
     final updatedTimesAnswered = params.manager.group.timesAnswered + 1;
     final updatedTotalAnswers = params.manager.group.totalAnswers + questionsLength;
     final updatedCorrectAnswers = params.manager.group.correctAnswers + corrects;
-    final updatedAnswerRating = (updatedCorrectAnswers / updatedTotalAnswers * 100).toInt();
+    final updatedAnswerRating =  updatedCorrectAnswers > 0 && updatedTotalAnswers > 0
+      ? (updatedCorrectAnswers / updatedTotalAnswers * 100).toInt()
+      : 0;
 
     int updatedRevisionTime = params.manager.group.revisionTime;
     DateTime updatedNextRevisionDate = params.manager.group.nextRevisionDate;

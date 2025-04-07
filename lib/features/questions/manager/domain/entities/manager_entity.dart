@@ -61,5 +61,7 @@ extension QuestionsManagerExtension on QuestionsManagerEntity {
 
   bool get isLastQuestion => currentQUestion == questions.last;
 
-  int get percentageRating => ((corrects / questions.length) * 100).toInt();
+  int get percentageRating => corrects > 0 
+    ? ((corrects / questions.length) * 100).toInt()
+    : 0;
 }
