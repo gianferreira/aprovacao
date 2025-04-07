@@ -3,25 +3,15 @@ import 'package:aprovacao/core/widgets/button/aprovacao_filled_button.dart';
 import 'package:aprovacao/core/widgets/button/aprovacao_tonal_button.dart';
 import 'package:flutter/material.dart';
 
-class ResetProgressButton extends StatefulWidget {
-  const ResetProgressButton({
+class AprovacaoResetBottomSheet extends StatelessWidget {
+  const AprovacaoResetBottomSheet({
     super.key,
+    required this.onReset,
+    required this.isLoading,
   });
 
-  @override
-  State<ResetProgressButton> createState() => _ResetProgressButtonState();
-}
-
-class _ResetProgressButtonState extends State<ResetProgressButton> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
+  final VoidCallback onReset;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -85,9 +75,8 @@ class _ResetProgressButtonState extends State<ResetProgressButton> {
                     children: <Widget>[
                       AprovacaoTonalButton(
                         text: 'Sim, resetar',
-                        onPressed: () {
-                          AprovacaoNavigator.pop(context: context);
-                        },
+                        onPressed: onReset,
+                        isLoading: isLoading,
                         padding: EdgeInsets.zero,
                       ),
                       AprovacaoFilledButton(

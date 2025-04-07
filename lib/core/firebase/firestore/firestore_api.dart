@@ -6,6 +6,10 @@ import 'package:aprovacao/features/questions/manager/data/models/group_model.dar
 import 'package:aprovacao/features/questions/manager/domain/entities/group_entity.dart';
 import 'package:aprovacao/features/questions/manager/domain/entities/manager_entity.dart';
 import 'package:aprovacao/features/report/groups/domain/entities/group_report_entity.dart';
+import 'package:aprovacao/features/reset/data/models/reset_group_model.dart';
+import 'package:aprovacao/features/reset/data/models/reset_module_model.dart';
+import 'package:aprovacao/features/reset/domain/entities/reset_group_entity.dart';
+import 'package:aprovacao/features/reset/domain/entities/reset_module_entity.dart';
 import 'package:aprovacao/features/user/signup/data/models/user_model.dart';
 import 'package:aprovacao/features/user/signup/domain/entities/user_entity.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -255,6 +259,75 @@ class FirestoreAPI {
       GroupsReportsSnapshots snapshots = userGroups;
 
       return snapshots;
+    } catch (err) {
+      throw ServerFailure(err.hashCode);
+    }
+  }
+
+  Future<bool> resetProgress({
+    required String userId,
+    required String certificationId,
+  }) async {
+    try {
+      final modulesSnaps = await db
+        .collection('modules')
+        .where('certification_id', isEqualTo: certificationId)
+        .get();
+
+      final modulesIds = modulesSnaps.docs.map(
+        (document) => document['id'].toString(),
+      ).toList();
+
+      final userModulesSnaps = await db
+        .collection('users_modules')
+        .where('user_id', isEqualTo: userId)
+        .where('module_id', whereIn: modulesIds)
+        .get();
+
+      final userModules = userModulesSnaps.docs.map(
+        (document) => document.data()
+      ).toList();
+
+      final groupsSnaps = await db
+        .collection('groups')
+        .where('module_id', whereIn: modulesIds)
+        .get();
+
+      final groupsIds = groupsSnaps.docs.map(
+        (document) => document['id'].toString(),
+      ).toList();
+
+      final userGroupsSnaps = await db
+        .collection('users_groups')
+        .where('user_id', isEqualTo: userId)
+        .where('group_id', whereIn: groupsIds)
+        .get();
+
+      final userGroups = userGroupsSnaps.docs.map(
+        (document) => document.data()
+      ).toList();
+
+      for (var userModule in userModules) {
+        ResetModuleSnapshot updatedModule = ResetModuleModel().toJson(
+          module: userModule
+        );
+
+        await db.collection('users_modules').doc(
+          updatedModule['id'],
+        ).set(updatedModule);
+      }
+
+      for (var userGroup in userGroups) {
+        ResetGroupSnapshot updatedGroup = ResetGroupModel().toJson(
+          group: userGroup,
+        );
+
+        await db.collection('users_groups').doc(
+          updatedGroup['id'],
+        ).set(updatedGroup);
+      }
+
+      return true;
     } catch (err) {
       throw ServerFailure(err.hashCode);
     }

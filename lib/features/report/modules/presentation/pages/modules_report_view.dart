@@ -7,7 +7,7 @@ import 'package:aprovacao/features/modules/list/domain/entities/module_entity.da
 import 'package:aprovacao/features/report/modules/presentation/widgets/module_report_instructions.dart';
 import 'package:aprovacao/features/report/modules/presentation/widgets/module_report_item.dart';
 import 'package:aprovacao/features/report/modules/presentation/widgets/module_report_separator.dart';
-import 'package:aprovacao/features/reset/presentation/widgets/reset_progress_button.dart';
+import 'package:aprovacao/features/reset/presentation/widgets/reset_handler.dart';
 import 'package:aprovacao/features/user/signup/domain/entities/user_entity.dart';
 import 'package:flutter/material.dart';
 
@@ -68,7 +68,10 @@ class ModulesReportView extends StatelessWidget {
         children: <Widget>[
           Visibility(
             visible: currentModule != modules.first,
-            child: ResetProgressButton(),
+            child: ResetHandler(
+              user: user,
+              certification: certification,
+            ),
           ),
           AprovacaoFilledButton(
             text: 'Voltar',
