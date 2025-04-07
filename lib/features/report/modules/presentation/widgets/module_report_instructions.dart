@@ -12,9 +12,11 @@ class ModuleReportInstructions extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: 16.0,
-            horizontal: 16.0,
+          padding: const EdgeInsets.only(
+            top: 8.0,
+            bottom: 8.0,
+            left: 16.0,
+            right: 16.0,
           ),
           child: Text(
             'Relatórios',

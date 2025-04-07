@@ -5,10 +5,12 @@ class ModulesInstructions extends StatelessWidget {
     Key? key,
     this.isFirstModule = false,
     this.isLastModule = false,
+    this.finishedModules = false,
   }) : super(key: key);
 
   final bool isFirstModule;
   final bool isLastModule;
+  final bool finishedModules;
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +19,16 @@ class ModulesInstructions extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: 16.0,
-            horizontal: 16.0,
+          padding: const EdgeInsets.only(
+            top: 8.0,
+            bottom: 8.0,
+            left: 16.0,
+            right: 16.0,
           ),
           child: Text(
             isFirstModule 
               ? 'Conheça as etapas' 
-              :  isLastModule
+              :  isLastModule && finishedModules
                   ? 'Concluindo seus estudos'
                   : 'Continuando seus estudos',
             style: TextStyle(

@@ -19,12 +19,13 @@ class GroupReportDashboard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
+        const SizedBox(height: 24.0),
         Divider(
           height: 2.0,
           thickness: 2.0,
           color: Color(0xFFEDEDED),
         ),
-        const SizedBox(height: 8.0),
+        const SizedBox(height: 0.0),
         Padding(
           padding: const EdgeInsets.symmetric(
             vertical: 16.0,
@@ -66,7 +67,8 @@ class GroupReportDashboard extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(
-                right: 32.0,
+                right: 40.0,
+                bottom: 32.0,
               ),
               child: Stack(
                 alignment: Alignment.center,
@@ -76,14 +78,14 @@ class GroupReportDashboard extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'MyriadProRegular',
                       height: 1.2,
-                      fontSize: 18.0,
+                      fontSize: 14.0,
                       fontWeight: FontWeight.w600,
                       color: Color(0xFF0075FF),
                     ),
                   ),
                   SizedBox(
-                    height: 70.0,
-                    width: 70.0,
+                    height: 60.0,
+                    width: 60.0,
                     child: Expanded(
                       child: CircularProgressIndicator(
                         valueColor: AlwaysStoppedAnimation<Color>(

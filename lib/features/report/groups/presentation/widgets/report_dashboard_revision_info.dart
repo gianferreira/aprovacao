@@ -37,7 +37,7 @@ class ReportDashboardRevisionInfo extends StatelessWidget {
             style: TextStyle(
               fontFamily: 'MyriadProRegular',
               height: 1.2,
-              fontSize: 20.0,
+              fontSize: 16.0,
               fontWeight: FontWeight.w600,
               color: Color(0xFF0075FF),
             ),

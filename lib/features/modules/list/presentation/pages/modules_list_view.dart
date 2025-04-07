@@ -43,6 +43,7 @@ class ModulesListView extends StatelessWidget {
         ModulesInstructions(
           isFirstModule: currentModule == modules.first && modules.first.availablePresentation,
           isLastModule: currentModule == modules.last,
+          finishedModules: modules.finishedModules,
         ),
         Padding(
           padding: const EdgeInsets.symmetric(
@@ -90,7 +91,7 @@ class ModulesListView extends StatelessWidget {
               }
             ),
           ),
-          currentModule == modules.last
+          currentModule == modules.last && modules.finishedModules
             ? AprovacaoFilledButton(
                 text: 'Concluir estudos',
                 onPressed: () {
