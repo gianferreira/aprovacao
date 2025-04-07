@@ -5,6 +5,7 @@ import 'package:aprovacao/features/modules/list/domain/entities/module_entity.da
 import 'package:aprovacao/features/questions/manager/data/models/group_model.dart';
 import 'package:aprovacao/features/questions/manager/domain/entities/group_entity.dart';
 import 'package:aprovacao/features/questions/manager/domain/entities/manager_entity.dart';
+import 'package:aprovacao/features/report/groups/domain/entities/group_report_entity.dart';
 import 'package:aprovacao/features/user/signup/data/models/user_model.dart';
 import 'package:aprovacao/features/user/signup/domain/entities/user_entity.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -222,6 +223,38 @@ class FirestoreAPI {
       ).set(updatedUserModuleJson);
 
       return true;
+    } catch (err) {
+      throw ServerFailure(err.hashCode);
+    }
+  }
+
+  Future<GroupsReportsSnapshots> generateReport({
+    required String userId,
+    required String moduleId,
+  }) async {
+    try {
+      final groupsSnaps = await db
+        .collection('groups')
+        .where('module_id', isEqualTo: moduleId)
+        .get();
+
+      final groupsIds = groupsSnaps.docs.map(
+        (document) => document['id'].toString(),
+      ).toList();
+
+      final userGroupsSnaps = await db
+        .collection('users_groups')
+        .where('user_id', isEqualTo: userId)
+        .where('group_id', whereIn: groupsIds)
+        .get();
+
+      final userGroups = userGroupsSnaps.docs.map(
+        (document) => document.data()
+      ).toList();
+
+      GroupsReportsSnapshots snapshots = userGroups;
+
+      return snapshots;
     } catch (err) {
       throw ServerFailure(err.hashCode);
     }
