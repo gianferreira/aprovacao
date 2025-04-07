@@ -20,7 +20,7 @@ class CertificationsListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return AprovacaoScaffoldView(
       appBar: AprovacaoAppBar(
-        title: 'Meus Estudos',
+        title: 'Certificações',
         hasBackButton: false,
         onBackButtonPressed: () {},
         customLeading: SignoutHandler(),
